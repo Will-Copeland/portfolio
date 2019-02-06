@@ -2,7 +2,24 @@ module.exports = {
   siteMetadata: {
     title: 'Will Copeland',
     description: 'Portfolio Page',
-    author: '@gatsbyjs',
+    author: 'William Copeland',
+    skills: {
+      proficient: [
+        'JavaScript',
+        'React',
+        'Material-UI',
+        'CSS Grid, Flexbox, etc',
+      ],
+      workingKnowledge: [
+        'GraphQL & Prisma',
+        'Node.js',
+        'Next.js',
+        'Gatsby',
+      ],
+    },
+    projects: {
+
+    },
   },
   plugins: [
     'gatsby-plugin-react-helmet',

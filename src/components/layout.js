@@ -11,9 +11,7 @@ import layout from './layout.css';
 const styles = {
   layout: {
     height: '100vh',
-    // width: '100vw',
     backgroundColor: 'black',
-    overflowY: 'auto',
   },
 };
 
@@ -49,12 +47,7 @@ class Layout extends React.PureComponent {
                 >
                   <main>{children}</main>
                   <footer>
-            ©
-                    {' '}
-                    {new Date().getFullYear()}
-, Built with
-                    {' '}
-                    {/* <a href="https://www.gatsbyjs.org">Gatsby</a> */}
+      
                   </footer>
                 </div>
               </div>

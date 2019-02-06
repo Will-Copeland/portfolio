@@ -7,6 +7,18 @@ const theme = createMuiTheme({
       main: '#FFF',
     },
   },
+  typography: {
+    h1: {
+      color: '#FFF',
+      borderBottom: '1px solid white',
+    },
+    h5: {
+      color: '#FFF',
+    },
+    h6: {
+      color: '#FFF',
+    },
+  },
 });
 
 

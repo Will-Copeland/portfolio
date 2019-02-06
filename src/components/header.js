@@ -49,7 +49,7 @@ const Header = ({ siteTitle, classes }) => (
             to="#"
             className={classes.title}
           >
-          About
+          Work
           </Link>
         </Typography>
           <Typography variant="h4" color="inherit" className={classes.grow}>
@@ -65,7 +65,7 @@ const Header = ({ siteTitle, classes }) => (
             to="#"
             className={classes.title}
           >
-          Work
+          Contact
           </Link>
         </Typography>
         </div>
