@@ -33,8 +33,8 @@ class Skills extends Component {
   }
 
   render() {
-    const { classes } = this.props;
-    const { open } = this.state;
+    const { classes, open } = this.props;
+    // const { open } = this.state;
     return (
       <StaticQuery
         query={graphql`
