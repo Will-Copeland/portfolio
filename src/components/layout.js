@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { withStyles, MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import Header from './header';
+import Header from './Header';
 import Theme from '../utils/Theme';
 import layout from './layout.css';
 
@@ -41,7 +41,7 @@ class Layout extends React.PureComponent {
                   style={{
                     margin: '0 auto',
                     maxWidth: '100%',
-                    padding: '0px 1.0875rem 1.45rem',
+                    padding: '0px 1.0875rem 0',
                     paddingTop: 0,
                   }}
                 >
