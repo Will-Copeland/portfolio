@@ -1,9 +1,13 @@
 import React, { PureComponent } from 'react';
-import { withStyles } from '@material-ui/core';
+import { withStyles, Typography } from '@material-ui/core';
 
 const styles = theme => ({
   test: {
     backgroundColor: theme.palette.primary.main,
+  },
+  subTitle: {
+    margin: '1rem 0 0 3rem',
+    maxWidth: '55%',
   },
 });
 
@@ -12,7 +16,12 @@ class Jumbotron extends PureComponent {
     const { classes } = this.props;
     return (
       <div>
-        <h1 className={classes.test}>This is a test</h1>
+        <Typography variant="h1">DEV // ENTHUSIAST</Typography>
+        <Typography className={classes.subTitle} variant="h5">
+        I'm a Frontend Developer passionate about
+        creating perfomant, portable and maintainable code,
+        specializing in React.js
+        </Typography>
       </div>
     );
   }
