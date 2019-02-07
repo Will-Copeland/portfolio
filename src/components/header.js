@@ -52,14 +52,14 @@ const Header = ({ siteTitle, classes }) => (
           Work
           </Link>
         </Typography>
-          <Typography variant="h4" color="inherit" className={classes.grow}>
+          {/* <Typography variant="h4" color="inherit" className={classes.grow}>
           <Link
             to="/"
             className={classes.title}
           >
             {siteTitle}
           </Link>
-        </Typography>
+        </Typography> */}
           <Typography variant="h6" color="inherit" className={classes.grow}>
           <Link
             to="#"
@@ -69,10 +69,9 @@ const Header = ({ siteTitle, classes }) => (
           </Link>
         </Typography>
         </div>
-        <div className={classes.hidden}>
+        {/* <div className={classes.hidden}>
           <Logo />
-        </div>
-        {/* <Button color="inherit">Login</Button> */}
+        </div> */}
       </Toolbar>
     </AppBar>
   </div>

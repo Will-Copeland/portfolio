@@ -14,7 +14,7 @@ module.exports = {
         'GraphQL & Prisma',
         'Node.js',
         'Next.js',
-        'Gatsby',
+        'Leaflet',
       ],
     },
     projects: {

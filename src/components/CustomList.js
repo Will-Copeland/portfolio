@@ -64,10 +64,10 @@ const CustomList = ({
   </div>
 );
 
-CustomList.propTypes = {
-  classes: PropTypes.objectOf.isRequired,
-  items: PropTypes.arrayOf.isRequired,
+// CustomList.propTypes = {
+//   classes: PropTypes.objectOf.isRequired,
+//   items: PropTypes.arrayOf.isRequired,
 
-};
+// };
 
 export default withStyles(styles)(CustomList);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { object } from 'prop-types';
 import { Spring } from 'react-spring';
 import { withStyles, Typography } from '@material-ui/core';
 import { StaticQuery, graphql } from 'gatsby';
@@ -77,8 +77,5 @@ class Skills extends Component {
     );
   }
 }
-Skills.propTypes = {
-  classes: PropTypes.objectOf.isRequired,
-};
 
 export default withStyles(styles)(Skills);
