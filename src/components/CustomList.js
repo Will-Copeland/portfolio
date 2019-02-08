@@ -44,7 +44,7 @@ const CustomList = ({
       <List className={classes.list}>
         <Trail
           items={items}
-          delay={300}
+          delay={800}
           reverse={!open}
           from={fadeRight ? { right: 1000 } : { left: 1000 }}
           to={fadeRight ? { right: open ? 0 : 1000 } : { left: open ? 0 : 1000 }}
