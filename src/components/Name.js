@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Spring } from 'react-spring';
 import { Typography, withStyles } from '@material-ui/core';
 
