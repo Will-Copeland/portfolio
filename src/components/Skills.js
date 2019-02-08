@@ -10,7 +10,6 @@ const styles = theme => ({
   root: {
     display: 'inline-block',
     position: 'relative',
-    // top: '15%'
   },
   list: {
     display: 'flex',

@@ -13,7 +13,6 @@ const styles = {
   parallaxPage: {
     width: '100%',
     height: '100%',
-    // backgroundColor: 'gray',
   },
 };
 

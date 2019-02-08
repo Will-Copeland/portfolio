@@ -6,8 +6,6 @@ const styles = {
   root: {
     position: 'absolute',
     color: 'white',
-    // maxWidth: '75%',
-    // display: 'flex',
     zIndex: 1000,
   },
 };

@@ -10,11 +10,6 @@ import Logo from './Logo';
 const styles = {
   root: {
     backgroundColor: 'rgba(0, 0, 0, 0) !important',
-    // '@media (min-width: 960px)': {
-    //   // width: '80vw',
-    //   // margin: 'auto',
-    //   justifyContent: 'center',
-    // },
   },
   toolbar: {
     justifyContent: 'flex-end',
