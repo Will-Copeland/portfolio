@@ -9,6 +9,7 @@ const styles = theme => ({
   root: {
     display: 'inline-block',
     position: 'relative',
+    // top: '15%'
   },
   list: {
     display: 'flex',
@@ -21,20 +22,9 @@ const styles = theme => ({
 });
 
 class Skills extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false,
-    };
-  }
-
-  handleState() {
-    this.setState(state => ({ open: !state.open }));
-  }
-
   render() {
     const { classes, open } = this.props;
-    // const { open } = this.state;
+
     return (
       <StaticQuery
         query={graphql`
@@ -58,7 +48,8 @@ class Skills extends Component {
             </Typography>
             <div className={classes.list}>
               <Spring
-                delay={!open ? 375 : 0}
+
+                delay={!open ? 375 : 675}
                 from={{ opacity: 0, bottom: 1000 }}
                 to={{ opacity: open ? 1 : 0, bottom: open ? 0 : 1000 }}
               >
