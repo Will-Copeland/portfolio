@@ -18,8 +18,8 @@ function Name({ classes, atTop }) {
     <Spring
       delay={atTop ? null : 650}
       reverse={!atTop}
-      from={{ top: '60%', fontSize: '5rem' }}
-      to={atTop ? { top: '1px', fontSize: '2rem' } : { top: '60%', fontSize: '5rem' }}
+      from={{ top: '60vh', fontSize: '5rem' }}
+      to={atTop ? { top: '1px', fontSize: '2rem' } : { top: '60vh', fontSize: '5rem' }}
     >
       {props => (
         <h5 className={classes.root} style={props}>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { withStyles, MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import Background from '../images/bg2-1.webp';
 import Header from './Header';
 import Theme from '../utils/Theme';
 import layout from './layout.css';
@@ -11,7 +11,9 @@ import layout from './layout.css';
 const styles = {
   layout: {
     height: '100vh',
-    backgroundColor: 'black',
+    backgroundImage: `url(${Background})`,
+    backgroundSize: '100% 100%',
+    backgroundRepeat: 'no-repeat',
   },
 };
 
@@ -43,13 +45,11 @@ class Layout extends React.PureComponent {
                     width: '100%',
                     padding: '0 1.0875rem 0',
                     paddingTop: 0,
-                    overflowY: 'hidden'
+                    overflowY: 'hidden',
                   }}
                 >
-                  <main style={{ width: 'fit-content'}}>{children}</main>
-                  <footer>
-      
-                  </footer>
+                  <main style={{ width: 'fit-content' }}>{children}</main>
+                  <footer />
                 </div>
               </div>
             )}

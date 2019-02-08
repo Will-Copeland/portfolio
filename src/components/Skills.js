@@ -25,9 +25,6 @@ const styles = theme => ({
     margin: 'auto',
     width: '100%',
   },
-  title: {
-    backgroundColor: 'black',
-  },
 });
 
 class Skills extends PureComponent {

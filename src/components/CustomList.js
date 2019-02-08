@@ -7,7 +7,7 @@ import {
 const styles = theme => ({
   root: {
     position: 'relative',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     width: '100%'
   },
   list: {
@@ -36,7 +36,7 @@ const CustomList = ({
       <List className={classes.list}>
         <Trail
           items={items}
-          delay={1600}
+          delay={600}
           reverse={!open}
           from={fadeRight ? { right: 1000 } : { left: 1000 }}
           to={fadeRight ? { right: open ? 0 : 1000 } : { left: open ? 0 : 1000 }}
