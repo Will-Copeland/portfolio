@@ -19,7 +19,7 @@ class Jumbotron extends PureComponent {
         <Typography variant="h1">DEV // ENTHUSIAST</Typography>
         <Typography className={classes.subTitle} variant="h5">
         I'm a Frontend Developer passionate about
-        creating perfomant, portable and maintainable code,
+        creating readable, portable and maintainable code,
         specializing in React.js
         </Typography>
       </div>
