@@ -40,12 +40,13 @@ class Layout extends React.PureComponent {
                 <div
                   style={{
                     margin: '0 auto',
-                    maxWidth: '100%',
-                    padding: '0px 1.0875rem 0',
+                    width: '100%',
+                    padding: '0 1.0875rem 0',
                     paddingTop: 0,
+                    overflowY: 'hidden'
                   }}
                 >
-                  <main>{children}</main>
+                  <main style={{ width: 'fit-content'}}>{children}</main>
                   <footer>
       
                   </footer>

@@ -7,19 +7,19 @@ const styles = {
   root: {
     position: 'absolute',
     color: 'white',
-    maxWidth: '75%',
-    display: 'flex',
-    zIndex: 1000
+    // maxWidth: '75%',
+    // display: 'flex',
+    zIndex: 1000,
   },
 };
 
 function Name({ classes, atTop }) {
   return (
     <Spring
-      // delay={1000}
+      delay={atTop ? null : 650}
       reverse={!atTop}
-      from={{ top: '70%', fontSize: '5rem' }}
-      to={atTop ? { top: '1px', fontSize: '2rem' } : { top: '70%', fontSize: '5rem' }}
+      from={{ top: '60%', fontSize: '5rem' }}
+      to={atTop ? { top: '1px', fontSize: '2rem' } : { top: '60%', fontSize: '5rem' }}
     >
       {props => (
         <h5 className={classes.root} style={props}>

@@ -17,7 +17,7 @@ const styles = {
     // },
   },
   toolbar: {
-    justifyContent: 'flex-start',
+    justifyContent: 'flex-end',
   },
   nav: {
     display: 'flex',
