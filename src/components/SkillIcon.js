@@ -3,23 +3,36 @@ import {
   withStyles, Card, CardMedia, CardContent, Typography,
 } from '@material-ui/core';
 
-const styles = {
+const styles = theme => ({
   card: {
-    margin: '1.2rem'
+    margin: '0.5rem',
+    width: '60px',
+    height: '70px',
+    [theme.breakpoints.up('md')]: {
+      width: '200px',
+      height: 'auto'
+    },
   },
   media: {
-    width: '120px',
-    height: '140px',
+    width: '50px',
+    height: '60px',
+    margin: '0.25rem auto',
     textAlign: 'center',
-    margin: '0.5rem',
     backgroundSize: 'contain',
+    [theme.breakpoints.up('md')]: {
+      width: '120px',
+      height: '140px',
+    },
   },
   content: {
     textAlign: 'center',
   },
-};
 
-function SkillIcon({ classes, trail, logo, title }) {
+});
+
+function SkillIcon({
+  classes, trail, logo, title,
+}) {
   return (
     <div style={trail}>
       <Card className={classes.card}>

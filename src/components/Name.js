@@ -2,13 +2,17 @@ import React from 'react';
 import { Spring } from 'react-spring';
 import { Typography, withStyles } from '@material-ui/core';
 
-const styles = {
+const styles = theme => ({
   root: {
     position: 'absolute',
     color: 'white',
     zIndex: 1000,
+    marginLeft: '5%',
+    [theme.breakpoints.up('md')]: {
+
+    },
   },
-};
+});
 
 function Name({ classes, atTop }) {
   return (

@@ -8,8 +8,17 @@ import SkillsLogos from './SkillsLogos';
 
 const styles = theme => ({
   root: {
-    display: 'inline-block',
     position: 'relative',
+    maxWidth: '100%',
+    top: '-20px',
+    margin: 'auto',
+    zIndex: 120000,
+    [theme.breakpoints.up('md')]: {
+      display: 'inline-block',
+
+      top: 0,
+      left: '5%'
+    },
   },
   list: {
     display: 'flex',
@@ -17,10 +26,16 @@ const styles = theme => ({
     position: 'relative',
     overflow: 'hidden',
   },
-  secondryList: {
+  logoList: {
     display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    [theme.breakpoints.up('md')]: {
+      
+    },
   },
   textList: {
+    display: 'flex',
     margin: 'auto',
     width: '100%',
   },
@@ -60,11 +75,11 @@ class Skills extends PureComponent {
               >
                 {props => (
                   <div className={classes.list} style={props}>
-                    <div className={classes.secondryList}>
+                    <div className={classes.logoList}>
                       <SkillsLogos open={open} />
                     </div>
 
-                    <div className={classnames(classes.secondryList, classes.textList)}>
+                    <div className={classes.textList}>
                       <CustomList open={open} fadeRight title="Proficient" items={data.site.siteMetadata.skills.proficient} />
                       <CustomList open={open} title="Experience With" items={data.site.siteMetadata.skills.workingKnowledge} />
 

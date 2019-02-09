@@ -8,10 +8,19 @@ const styles = theme => ({
   root: {
     position: 'relative',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    width: '100%'
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+
+    },
   },
   list: {
-    paddingLeft: '1rem',
+    margin: 0,
+    padding: 0,
+    [theme.breakpoints.up('md')]: {
+      paddingLeft: '1rem',
+    },
+
+
   },
   divider: {
     backgroundColor: 'white',
@@ -33,7 +42,7 @@ const CustomList = ({
         </Typography>
 
       </ListItem>
-      <List className={classes.list}>
+      <List dense className={classes.list}>
         <Trail
           items={items}
           delay={600}

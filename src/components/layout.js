@@ -43,7 +43,7 @@ class Layout extends React.PureComponent {
                   style={{
                     margin: '0 auto',
                     width: '100%',
-                    padding: '0 1.0875rem 0',
+                    // padding: '0 1.0875rem 0',
                     paddingTop: 0,
                     overflowY: 'hidden',
                   }}
