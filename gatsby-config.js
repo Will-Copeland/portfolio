@@ -6,13 +6,13 @@ module.exports = {
     skills: {
       proficient: [
         'JavaScript',
-        'React',
+        'React.js',
         'Material-UI',
-        'CSS Grid, Flexbox, etc',
+        'CSS3 // Grid // Flexbox',
       ],
       workingKnowledge: [
-        'GraphQL & Prisma',
-        'Node.js',
+        'GraphQL // Prisma',
+        'Node.js // Express',
         'Next.js',
         'Leaflet',
       ],
