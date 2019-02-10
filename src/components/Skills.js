@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
-import classnames from 'classnames';
 import { Spring } from 'react-spring';
 import { withStyles, Typography } from '@material-ui/core';
 import { StaticQuery, graphql } from 'gatsby';
 import CustomList from './CustomList';
 import SkillsLogos from './SkillsLogos';
+import CardSpring from './CardSpring';
 
 const styles = theme => ({
   root: {
@@ -17,7 +17,7 @@ const styles = theme => ({
       display: 'inline-block',
 
       top: 0,
-      left: '5%'
+      left: '5%',
     },
   },
   list: {
@@ -31,7 +31,7 @@ const styles = theme => ({
     flexWrap: 'wrap',
     justifyContent: 'center',
     [theme.breakpoints.up('md')]: {
-      
+
     },
   },
   textList: {
@@ -67,27 +67,16 @@ class Skills extends PureComponent {
                 Skills
             </Typography>
             <div className={classes.list}>
-              <Spring
+              <CardSpring open={open}>
+                <div className={classes.logoList}>
+                  <SkillsLogos open={open} />
+                </div>
 
-                delay={!open ? 375 : 675}
-                from={{ opacity: 0, bottom: 1000 }}
-                to={{ opacity: open ? 1 : 0, bottom: open ? 0 : 1000 }}
-              >
-                {props => (
-                  <div className={classes.list} style={props}>
-                    <div className={classes.logoList}>
-                      <SkillsLogos open={open} />
-                    </div>
-
-                    <div className={classes.textList}>
-                      <CustomList open={open} fadeRight title="Proficient" items={data.site.siteMetadata.skills.proficient} />
-                      <CustomList open={open} title="Experience With" items={data.site.siteMetadata.skills.workingKnowledge} />
-
-                    </div>
-
-                  </div>
-                )}
-              </Spring>
+                <div className={classes.textList}>
+                  <CustomList open={open} fadeRight title="Proficient" items={data.site.siteMetadata.skills.proficient} />
+                  <CustomList open={open} title="Experience With" items={data.site.siteMetadata.skills.workingKnowledge} />
+                </div>
+              </CardSpring>
 
             </div>
           </div>
