@@ -8,6 +8,7 @@ import Jumbotron from '../components/Jumbotron';
 import SEO from '../components/seo';
 import Skills from '../components/Skills';
 import Name from '../components/Name';
+import Work from '../components/Work';
 
 const styles = {
   parallaxPage: {
@@ -61,15 +62,19 @@ class IndexPage extends React.Component {
           <ParallaxLayer offset={1} speed={0.2}>
 
 
-            <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 0, () => this.parallax.scrollTo(0))}>
+            <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 2, () => this.parallax.scrollTo(2))}>
               <ParallaxLayer offset={0.2} speed={1.3}>
                 <Skills open={currentPage === 1} />
 
               </ParallaxLayer>
             </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={2.1} speed={3}>
-            <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 3, () => this.parallax.scrollTo(3))} />
+          <ParallaxLayer offset={2}>
+            <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 0, () => this.parallax.scrollTo(0))}>
+              <ParallaxLayer offset={1.4} speed={1.3}>
+                <Work open={currentPage === 2} />
+              </ParallaxLayer>
+            </div>
 
           </ParallaxLayer>
         </Parallax>
