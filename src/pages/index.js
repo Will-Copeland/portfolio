@@ -48,7 +48,7 @@ class IndexPage extends React.Component {
 
 
         <SEO title="Will Copeland" keywords={['gatsby', 'William', 'react']} />
-        <Parallax scrolling={false} ref={ref => (this.parallax = ref)} pages={3}>
+        <Parallax ref={ref => (this.parallax = ref)} pages={3}>
           <ParallaxLayer offset={0}>
 
             <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 1, () => this.parallax.scrollTo(0.5))}>

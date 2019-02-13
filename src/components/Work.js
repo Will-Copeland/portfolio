@@ -20,7 +20,10 @@ class Work extends PureComponent {
       <div className={classes.root}>
         <Typography variant="h1">Work</Typography>
         <CardSpring openDelay open={open}>
-        
+          <GridList cellHeight={80} className={classes.gridList}>
+            
+          
+          </GridList>
         </CardSpring>
       </div>
     );
