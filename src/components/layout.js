@@ -20,6 +20,29 @@ const styles = {
 class Layout extends React.PureComponent {
   render() {
     const { classes, children } = this.props;
+
+    // Sample for fixing Name issue with changing pages, will send callback
+    // to <index.js/> to extract state, force Name to stay in header.
+
+    // Also fix "scrollTo" issue on clicking Project links
+
+    // Current page is available via React Router as this.props.location.pathname
+
+    // render() {
+    //   const children = React.Children.map(this.props.children, child => {
+    //     return React.cloneElement(child, {
+    //       someData: this.props.someData
+    //       someState: this.state.someState
+    //       someFunction: x => x
+    //     });
+    //   });
+    // return (
+    //     <div>
+    //       { children }
+    //     </div>
+    //   )
+    // }
+
     return (
 
       <CssBaseline>
@@ -37,6 +60,8 @@ class Layout extends React.PureComponent {
       }
     `}
             render={data => (
+
+
               <div className={classes.layout}>
                 <Header siteTitle={data.site.siteMetadata.title} />
                 <div

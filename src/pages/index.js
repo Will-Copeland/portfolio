@@ -38,9 +38,9 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
+    const { classes, location: { pathname } } = this.props;
     const { currentPage } = this.state;
-    console.log('currentPage', currentPage);
+    console.log('currentPage', pathname);
 
     return (
       <Layout>
