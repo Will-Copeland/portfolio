@@ -1,34 +1,67 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core';
+import React, { PureComponent } from 'react';
+import { withStyles, Typography, GridList } from '@material-ui/core';
+import { StaticQuery, graphql } from 'gatsby';
+import CardSpring from './CardSpring';
+import ProjectCard from './ProjectCard';
+
 
 const styles = {
+  root: {
+    display: 'static',
+    overflow: 'hidden',
+  },
+  gridList: {
 
+  }
 };
 
-function Work({ classes, title }) {
-  return (
-    <div className={classes.root}>
+class Work extends PureComponent {
+  render() {
+    const { open, classes } = this.props;
+    return (
+      <StaticQuery
+        query={graphql`
+              query WorkQuery {
+                allMarkdownRemark {
+	  edges {
+	    node {
+        fields {
+          slug
+        }
+	      id
+        fileAbsolutePath
+        frontmatter {
+          title
+          toolsUsed
+          imgPath {
+            publicURL
+          }
+          excerpt
+        }
+        excerpt
+        html
+        
+	    }
+	  }
+	}
+}`}
+        render={data => (
+        
 
-            <Typography className={classes.title} onClick={() => this.handleState()} variant="h1">
-                Skills
-            </Typography>
-            <div className={classes.list}>
-              <Spring
-                delay={!open ? 375 : 0}
-                from={{ opacity: 0, bottom: 1000 }}
-                to={{ opacity: open ? 1 : 0, bottom: open ? 0 : 1000 }}
-              >
-                {props => (
-                  <div className={classes.list} style={props}>
-                    <CustomList open={open} fadeRight title="Proficient" items={data.site.siteMetadata.skills.proficient} />
-                    <CustomList open={open} title="Experience With" items={data.site.siteMetadata.skills.workingKnowledge} />
-                  </div>
-                )}
-              </Spring>
+          <div className={classes.root}>
 
-            </div>
+            <Typography variant="h1">Work</Typography>
+            <CardSpring openDelay open={open}>
+              <GridList cellHeight={180} className={classes.gridList}>
+                {data.allMarkdownRemark.edges.map(edge => <ProjectCard project={edge.node} />)}
+              </GridList>
+            </CardSpring>
           </div>
-  )
+        )}
+      />
+
+    );
+  }
 }
 
 export default withStyles(styles)(Work);

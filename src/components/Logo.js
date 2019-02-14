@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../images/logo.png';
+import logo from '../images/logo1.png';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -18,7 +18,8 @@ const Logo = classes => (
     className={classes.root}
     style={
       {
-        width: '10rem',
+        width: '5rem',
+        margin: '1rem 0 0 1rem'
       }
   }
     alt="logo"

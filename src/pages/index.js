@@ -1,50 +1,81 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { Parallax, ParallaxLayer } from 'react-spring/addons';
+import { withStyles } from '@material-ui/core';
 import Layout from '../components/layout';
 import Jumbotron from '../components/Jumbotron';
 
 import SEO from '../components/seo';
 import Skills from '../components/Skills';
+import Name from '../components/Name';
+import Work from '../components/Work';
+
+const styles = {
+  parallaxPage: {
+    width: '100%',
+    height: '100%',
+  },
+};
 
 class IndexPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state= {
-
-    }
-  };
+    this.state = {
+      currentPage: 0,
+    };
+  }
 
   componentDidMount() {
 
   }
-  
+
+  handleScroll = (e, page, cb) => {
+    e.stopPropagation();
+    e.nativeEvent.stopImmediatePropagation();
+    console.log(page);
+    this.setState({ currentPage: page });
+    setTimeout(() => cb(), 500);
+  }
+
   render() {
+    const { classes } = this.props;
+    const { currentPage } = this.state;
+    console.log('currentPage', currentPage);
+
     return (
       <Layout>
-        <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
-        {/* <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <Jumbotron />
-      <p>Now go build something great.</p>
-      <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
+        <Name atTop={currentPage > 0} />
 
-      </div> */}
-        <Parallax pages={3}>
-          <ParallaxLayer offset={0.3} speed={0.1}>
-            <Skills />
+
+        <SEO title="Will Copeland" keywords={['gatsby', 'William', 'react']} />
+        <Parallax ref={ref => (this.parallax = ref)} pages={3}>
+          <ParallaxLayer offset={0}>
+
+            <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 1, () => this.parallax.scrollTo(0.5))}>
+
+              <ParallaxLayer offset={0.3} speed={0.6}>
+                <Jumbotron />
+
+              </ParallaxLayer>
+            </div>
           </ParallaxLayer>
           <ParallaxLayer offset={1} speed={0.2}>
-            <Jumbotron />
+
+
+            <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 2, () => this.parallax.scrollTo(2))}>
+              <ParallaxLayer offset={0.2} speed={1.3}>
+                <Skills open={currentPage === 1} />
+
+              </ParallaxLayer>
+            </div>
           </ParallaxLayer>
-          <ParallaxLayer offset={2.1} speed={3}>
-            <Jumbotron />
-          </ParallaxLayer>
-          <ParallaxLayer offset={2.2} speed={2.1}>
-            <Jumbotron />
-          </ParallaxLayer>
-          <ParallaxLayer offset={1.8}>
-            <Jumbotron />
+          <ParallaxLayer offset={2}>
+            <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 0, () => this.parallax.scrollTo(0))}>
+              <ParallaxLayer offset={1.4} speed={1.3}>
+                <Work open={true} />
+              </ParallaxLayer>
+            </div>
+
           </ParallaxLayer>
         </Parallax>
 
@@ -53,4 +84,4 @@ class IndexPage extends React.Component {
   }
 }
 
-export default IndexPage;
+export default withStyles(styles)(IndexPage);

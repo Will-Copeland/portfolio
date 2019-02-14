@@ -7,31 +7,30 @@ import {
 import Logo from './Logo';
 
 
-const styles = {
+const styles = theme => ({
   root: {
-    backgroundColor: 'rgba(0, 0, 0, 0) !important',
-    // '@media (min-width: 960px)': {
-    //   // width: '80vw',
-    //   // margin: 'auto',
-    //   justifyContent: 'center',
-    // },
+    zIndex: 100,
+    backgroundColor: 'rgba(0, 0, 0, 0.7) !important',
   },
   toolbar: {
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
   },
   nav: {
     display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: '3rem'
+    },
   },
   title: {
     color: 'white',
-    margin: '0 2rem 0 1rem',
+    margin: '0 2rem 0 2rem',
     textDecoration: 'none',
 
   },
   hidden: {
     opacity: 0,
   },
-};
+});
 
 const Header = ({ siteTitle, classes }) => (
   <div>
@@ -44,35 +43,35 @@ const Header = ({ siteTitle, classes }) => (
         </div>
         {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" /> */}
         <div className={classes.nav}>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-          <Link
-            to="#"
-            className={classes.title}
-          >
-          Work
-          </Link>
-        </Typography>
-          <Typography variant="h4" color="inherit" className={classes.grow}>
+          {/* <Typography variant="h4" color="inherit" className={classes.grow}>
           <Link
             to="/"
             className={classes.title}
           >
             {siteTitle}
           </Link>
-        </Typography>
+        </Typography> */}
           <Typography variant="h6" color="inherit" className={classes.grow}>
-          <Link
-            to="#"
-            className={classes.title}
-          >
+            <Link
+              to="/"
+              className={classes.title}
+            >
+          Work
+            </Link>
+          </Typography>
+
+          <Typography variant="h6" color="inherit" className={classes.grow}>
+            <Link
+              to="/"
+              className={classes.title}
+            >
           Contact
-          </Link>
-        </Typography>
+            </Link>
+          </Typography>
         </div>
-        <div className={classes.hidden}>
+        {/* <div className={classes.hidden}>
           <Logo />
-        </div>
-        {/* <Button color="inherit">Login</Button> */}
+        </div> */}
       </Toolbar>
     </AppBar>
   </div>
