@@ -7,15 +7,19 @@ import {
 import Logo from './Logo';
 
 
-const styles = {
+const styles = theme => ({
   root: {
-    backgroundColor: 'rgba(0, 0, 0, 0) !important',
+    zIndex: 100,
+    backgroundColor: 'rgba(0, 0, 0, 0.7) !important',
   },
   toolbar: {
     justifyContent: 'flex-end',
   },
   nav: {
     display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: '3rem'
+    },
   },
   title: {
     color: 'white',
@@ -26,7 +30,7 @@ const styles = {
   hidden: {
     opacity: 0,
   },
-};
+});
 
 const Header = ({ siteTitle, classes }) => (
   <div>
@@ -39,7 +43,7 @@ const Header = ({ siteTitle, classes }) => (
         </div>
         {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" /> */}
         <div className={classes.nav}>
-        {/* <Typography variant="h4" color="inherit" className={classes.grow}>
+          {/* <Typography variant="h4" color="inherit" className={classes.grow}>
           <Link
             to="/"
             className={classes.title}
@@ -48,22 +52,22 @@ const Header = ({ siteTitle, classes }) => (
           </Link>
         </Typography> */}
           <Typography variant="h6" color="inherit" className={classes.grow}>
-          <Link
-            to="#"
-            className={classes.title}
-          >
+            <Link
+              to="/"
+              className={classes.title}
+            >
           Work
-          </Link>
-        </Typography>
-         
+            </Link>
+          </Typography>
+
           <Typography variant="h6" color="inherit" className={classes.grow}>
-          <Link
-            to="#"
-            className={classes.title}
-          >
+            <Link
+              to="/"
+              className={classes.title}
+            >
           Contact
-          </Link>
-        </Typography>
+            </Link>
+          </Typography>
         </div>
         {/* <div className={classes.hidden}>
           <Logo />

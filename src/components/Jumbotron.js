@@ -2,8 +2,13 @@ import React, { PureComponent } from 'react';
 import { withStyles, Typography } from '@material-ui/core';
 
 const styles = theme => ({
-  test: {
-    backgroundColor: theme.palette.primary.main,
+  root: {
+    marginLeft: '1rem',
+
+    [theme.breakpoints.down('md')]: {
+      position: 'relative',
+      top: '-6rem',
+    },
   },
   subTitle: {
     margin: '1rem 0 0 3rem',
@@ -15,7 +20,7 @@ class Jumbotron extends PureComponent {
   render() {
     const { classes } = this.props;
     return (
-      <div>
+      <div className={classes.root}>
         <Typography variant="h1">DEV // ENTHUSIAST</Typography>
         <Typography className={classes.subTitle} variant="h5">
         I'm a Frontend Developer passionate about

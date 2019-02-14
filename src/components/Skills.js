@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Spring } from 'react-spring';
 import { withStyles, Typography } from '@material-ui/core';
 import { StaticQuery, graphql } from 'gatsby';
 import CustomList from './CustomList';
