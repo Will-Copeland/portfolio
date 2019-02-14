@@ -72,7 +72,7 @@ class IndexPage extends React.Component {
           <ParallaxLayer offset={2}>
             <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 0, () => this.parallax.scrollTo(0))}>
               <ParallaxLayer offset={1.4} speed={1.3}>
-                <Work open={currentPage === 2} />
+                <Work open={true} />
               </ParallaxLayer>
             </div>
 

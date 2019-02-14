@@ -1,25 +1,34 @@
 import React, { PureComponent } from 'react';
-import { withStyles } from '@material-ui/core';
-import { GridListTile, GridListTileBar } from '@material-ui/core';
-
+import { GridListTile, GridListTileBar, withStyles } from '@material-ui/core';
+import { Link } from 'gatsby';
 
 const styles = {
+  root: {
 
+  },
+  cardImg: {
+    width: '150px',
+    height: '200px',
+    backgroundImage: 'url(../images/project-images/grand-central.png)',
+  },
 };
 
 class ProjectCard extends PureComponent {
   render() {
     const {
-      classes, imgPath, title, excerpt,
+      classes, project,
     } = this.props;
     return (
-      <GridListTile key={title}>
-        <img src={imgPath} alt={title} />
-        <GridListTileBar
-          title={title}
-          subtitle={excerpt}
-        />
-      </GridListTile>
+      <Link to={project.fields.slug}>
+        <GridListTile className={classes.root} key={project.frontmatter.title}>
+          <img className={classes.cardImg} src={project.frontmatter.imgPath[0].publicURL} alt={project.frontmatter.title} />
+          <GridListTileBar
+            className={classes.tileBar}
+            title={project.frontmatter.title}
+            subtitle={project.frontmatter.excerpt}
+          />
+        </GridListTile>
+      </Link>
     );
   }
 }

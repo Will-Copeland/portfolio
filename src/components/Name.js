@@ -8,7 +8,7 @@ const styles = theme => ({
     color: 'white',
     zIndex: 1000,
     marginLeft: '5%',
-    margin: '0.5rem 4.25rem 0 0',
+    margin: '0.75rem 4.25rem 0 0',
     [theme.breakpoints.up('md')]: {
 
     },
