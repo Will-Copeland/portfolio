@@ -1,10 +1,8 @@
 import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
 import React from 'react';
 import {
-  withStyles, AppBar, Toolbar, IconButton, Typography,
+  withStyles, AppBar, Toolbar, Typography,
 } from '@material-ui/core';
-// import ArrowBack from '@material-ui/icons/ArrowBack';
 import Name from './Name';
 import Logo from './Logo';
 
@@ -46,7 +44,7 @@ class Header extends React.PureComponent {
     const {
       classes, atTop, notOnIndex, handleInternalNav,
     } = this.props;
-    
+
     return (
       <div>
         <AppBar className={classes.root} position="fixed">
@@ -55,11 +53,12 @@ class Header extends React.PureComponent {
           <Toolbar className={classes.toolbar}>
             <div className={classes.logo}>
               <Logo />
-
             </div>
+
             <div className={classes.nav}>
-        
               <Typography
+                // if callback is on <Link /> it sets state as null
+                // Scroll to page 0 when on index
                 onClick={notOnIndex === undefined ? () => handleInternalNav(0) : null}
                 variant="h6"
                 color="inherit"
@@ -70,12 +69,13 @@ class Header extends React.PureComponent {
                   // navigate to index & scroll to 0
                   state={{ scrollTo: 0 }}
                   className={classes.title}
-                  // Scroll to page 0 when on index
                 >
           Home
                 </Link>
               </Typography>
               <Typography
+               // Scroll to page 0 when on index
+              //  if callback is on <Link /> it sets state as null
                 onClick={notOnIndex === undefined ? () => handleInternalNav(2) : null}
                 variant="h6"
                 color="inherit"
@@ -93,19 +93,11 @@ class Header extends React.PureComponent {
           Work
                 </Link>
               </Typography>
-
               <Typography variant="h6" color="inherit" className={classes.grow}>
-                <Link
-                  to="/"
-                  className={classes.title}
-                >
+
           Contact
-                </Link>
               </Typography>
             </div>
-            {/* <div className={classes.hidden}>
-          <Logo />
-        </div> */}
           </Toolbar>
         </AppBar>
       </div>
@@ -114,12 +106,5 @@ class Header extends React.PureComponent {
   }
 }
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: '',
-};
 
 export default withStyles(styles)(Header);
