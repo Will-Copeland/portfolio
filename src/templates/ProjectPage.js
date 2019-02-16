@@ -13,7 +13,6 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       display: 'flex',
       flexDirection: 'row-reverse',
-
     },
   },
   flex: {
@@ -31,7 +30,6 @@ const styles = theme => ({
   img: {
     maxWidth: '100%',
     maxHeight: '100%',
-
   },
   externalLink: {
     margin: '1rem',
@@ -46,7 +44,6 @@ const styles = theme => ({
     padding: '2rem',
     [theme.breakpoints.down('sm')]: {
       width: '90%',
-      // marginTop: '100vh'
     },
   },
   title: {
@@ -59,10 +56,8 @@ const styles = theme => ({
   chip: {
     margin: '1rem',
   },
-
 });
 
-// const post = markdownRemark;
 const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
   <Layout notOnIndex>
     <div className={classes.root}>
@@ -86,10 +81,12 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
               </a>
             )
             : null}
-
         </Typography>
+
         <div className={classes.body} dangerouslySetInnerHTML={{ __html: post.html }} />
+
         <Typography variant="h6">Tools I used for this project:</Typography>
+        
         {post.frontmatter.toolsUsed.map(tool => <Chip className={classes.chip} label={tool} />)}
       </div>
 
