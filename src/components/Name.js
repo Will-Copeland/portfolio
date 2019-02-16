@@ -21,7 +21,7 @@ const styles = theme => ({
     width: 'fit-content',
     margin: '1.25rem 4.25rem 0 1rem',
     [theme.breakpoints.down('xs')]: {
-      margin: '0.5rem 4.25rem 0 1rem',
+      margin: '0.5rem 3rem 0 1rem',
       right: 0,
     },
   },

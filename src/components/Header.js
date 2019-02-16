@@ -2,8 +2,10 @@ import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
-  withStyles, AppBar, Toolbar, Button, IconButton, Typography,
+  withStyles, AppBar, Toolbar, IconButton, Typography,
 } from '@material-ui/core';
+import ArrowBack from '@material-ui/icons/ArrowBack';
+import Name from './Name';
 import Logo from './Logo';
 
 
@@ -14,17 +16,24 @@ const styles = theme => ({
   },
   toolbar: {
     justifyContent: 'flex-end',
+    [theme.breakpoints.down('xs')]: {
+      justifyContent: 'space-between',
+    },
   },
   nav: {
     display: 'flex',
     [theme.breakpoints.down('xs')]: {
-      paddingTop: '3rem'
+      paddingTop: '3rem',
     },
   },
   title: {
     color: 'white',
-    margin: '0 2rem 0 2rem',
     textDecoration: 'none',
+    margin: '0 1rem 0 1rem',
+    [theme.breakpoints.down('sm')]: {
+      margin: '0 0.5rem 0 0.5rem',
+
+    },
 
   },
   hidden: {
@@ -32,18 +41,31 @@ const styles = theme => ({
   },
 });
 
-const Header = ({ siteTitle, classes }) => (
-  <div>
-    <AppBar className={classes.root} position="fixed">
+class Header extends React.PureComponent {
+  renderBackButton = () => (pathname !== '/' ? (
+    <IconButton>
+      <ArrowBack />
+    </IconButton>
+  ) : null)
 
-      <Toolbar className={classes.toolbar}>
-        <div>
-          <Logo />
+  render() {
+    const { classes, atTop } = this.props;
 
-        </div>
-        {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" /> */}
-        <div className={classes.nav}>
-          {/* <Typography variant="h4" color="inherit" className={classes.grow}>
+    return (
+      <div>
+        <AppBar className={classes.root} position="fixed">
+
+          {/* {this.renderBackButton()} */}
+          <Name atTop={atTop} />
+
+          <Toolbar className={classes.toolbar}>
+            <div className={classes.logo}>
+              <Logo />
+
+            </div>
+            {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" /> */}
+            <div className={classes.nav}>
+              {/* <Typography variant="h4" color="inherit" className={classes.grow}>
           <Link
             to="/"
             className={classes.title}
@@ -51,31 +73,43 @@ const Header = ({ siteTitle, classes }) => (
             {siteTitle}
           </Link>
         </Typography> */}
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            <Link
-              to="/"
-              className={classes.title}
-            >
-          Work
-            </Link>
-          </Typography>
 
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            <Link
-              to="/"
-              className={classes.title}
-            >
+              <Typography variant="h6" color="inherit" className={classes.grow}>
+                <Link
+                  to="/"
+                  className={classes.title}
+                >
+          Home
+                </Link>
+              </Typography>
+              <Typography variant="h6" color="inherit" className={classes.grow}>
+                <Link
+                  to="/work"
+                  className={classes.title}
+                >
+          Work
+                </Link>
+              </Typography>
+
+              <Typography variant="h6" color="inherit" className={classes.grow}>
+                <Link
+                  to="/"
+                  className={classes.title}
+                >
           Contact
-            </Link>
-          </Typography>
-        </div>
-        {/* <div className={classes.hidden}>
+                </Link>
+              </Typography>
+            </div>
+            {/* <div className={classes.hidden}>
           <Logo />
         </div> */}
-      </Toolbar>
-    </AppBar>
-  </div>
-);
+          </Toolbar>
+        </AppBar>
+      </div>
+
+    );
+  }
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
