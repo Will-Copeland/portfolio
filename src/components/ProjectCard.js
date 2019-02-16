@@ -1,14 +1,19 @@
 import React, { PureComponent } from 'react';
 import {
-  Card, CardHeader, CardMedia, CardContent, withStyles, Typography,
+  Card, CardHeader, CardMedia, CardContent, withStyles, Typography, Hidden,
 } from '@material-ui/core';
 import { Link } from 'gatsby';
 
-const styles = {
+const styles = theme => ({
   root: {
     margin: '2rem',
-    width: '280px',
-    height: '400px',
+    width: '15rem',
+    height: '25rem',
+    [theme.breakpoints.down('md')]: {
+      width: '7rem',
+      height: '11rem',
+      margin: '1rem',
+    },
   },
   link: {
     textDecoration: 'none',
@@ -23,10 +28,10 @@ const styles = {
   content: {
     width: '90%',
   },
-};
+});
 
 class ProjectCard extends PureComponent {
-  stopPropagation = () => {
+  stopPropagation = (e) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
   }
@@ -39,7 +44,10 @@ class ProjectCard extends PureComponent {
       <Link onClick={this.stopPropagation} className={classes.link} to={project.fields.slug}>
         <Card className={classes.root} key={project.frontmatter.title}>
           <CardHeader title={project.frontmatter.title} subheader={`${project.frontmatter.type} Project`} />
-          <CardMedia className={classes.cardImg} image={project.frontmatter.imgPath[0].publicURL} />
+          <Hidden mdDown>
+            <CardMedia className={classes.cardImg} image={project.frontmatter.imgPath[0].publicURL} />
+
+          </Hidden>
           <CardContent className={classes.content}>
             <Typography variant="subtitle2">
               {project.excerpt}

@@ -63,12 +63,12 @@ class IndexPage extends React.Component {
 
 
         <SEO title="Will Copeland" keywords={['Frontend', 'Developer', 'React', 'React.js']} />
-        <Parallax ref={ref => (this.parallax = ref)} pages={3}>
+        <Parallax scrolling={false} ref={ref => (this.parallax = ref)} pages={3}>
           <ParallaxLayer offset={0}>
 
             <div className={classes.parallaxPage} role="presentation" onClick={() => this.handleScroll(1)}>
 
-              <Jumbotron />
+              <Jumbotron open={currentPage === 0} />
 
             </div>
           </ParallaxLayer>

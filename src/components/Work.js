@@ -5,24 +5,46 @@ import CardSpring from './CardSpring';
 import ProjectCard from './ProjectCard';
 
 
-const styles = {
+const styles = theme => ({
   root: {
-    // display: 'inline-block',
-    overflow: 'hidden',
-    width: '100%',
-    height: 'fit-content',
-    // marginTop: '2rem'
+    position: 'relative',
+    height: '100%',
+    top: 150,
+    margin: '1rem',
+
+    [theme.breakpoints.up('md')]: {
+      display: 'inline-block',
+      right: '5%',
+      float: 'right',
+
+    },
   },
   title: {
     textAlign: 'right',
-    paddingRight: '6rem',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   content: {
+    overflow: 'hidden',
     display: 'flex',
-    justifyContent: 'space-around'
-  }
-};
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    height: '100%',
+  },
+  cards: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    [theme.breakpoints.down('md')]: {
+      // width: '7rem',
+      // height: '10rem',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'space-evenly',
+      // display: 'grid', 
+      alignItems: 'center',
+      height: '100%',
+    },
+  },
+});
 
 class Work extends PureComponent {
   render() {
@@ -56,17 +78,15 @@ class Work extends PureComponent {
 	}
 }`}
         render={data => (
-
-
           <div className={classes.root}>
-
             <Typography className={classes.title} variant="h1">Work</Typography>
-            <CardSpring openDelay open={open}>
-              <div className={classes.content}>
-                {data.allMarkdownRemark.edges.map(edge => <ProjectCard key={edge.node.id} project={edge.node} />)}
-
-              </div>
-            </CardSpring>
+            <div className={classes.content}>
+              <CardSpring openDelay open={open}>
+                <div className={classes.cards}>
+                  {data.allMarkdownRemark.edges.map(edge => <ProjectCard key={edge.node.id} project={edge.node} />)}
+                </div>
+              </CardSpring>
+            </div>
           </div>
         )}
       />

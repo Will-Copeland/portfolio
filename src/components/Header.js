@@ -93,8 +93,7 @@ class Header extends React.PureComponent {
           Work
                 </Link>
               </Typography>
-              <Typography variant="h6" color="inherit" className={classes.grow}>
-
+              <Typography variant="h6" color="inherit" className={classes.title}>
           Contact
               </Typography>
             </div>

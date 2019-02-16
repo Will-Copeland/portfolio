@@ -30,6 +30,7 @@ const styles = theme => ({
   img: {
     maxWidth: '100%',
     maxHeight: '100%',
+    margin: '1rem'
   },
   externalLink: {
     margin: '1rem',

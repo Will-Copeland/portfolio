@@ -31,6 +31,14 @@ const theme = createMuiTheme({
     },
     subtitle1: {
       color: 'white'
+    },
+    body1: {
+      color: 'white',
+      fontSize: '1.2rem',
+      lineHeight: '2rem',
+      '@media (max-width: 960px)': {
+        fontSize: '1rem',
+      },
     }
   },
 });
