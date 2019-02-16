@@ -13,7 +13,7 @@ const styles = {
     height: '100vh',
     backgroundImage: `url(${Background})`,
     backgroundSize: '100% 100%',
-    backgroundRepeat: 'no-repeat',
+    backgroundRepeat: 'repeat',
   },
 };
 

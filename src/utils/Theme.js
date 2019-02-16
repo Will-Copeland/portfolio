@@ -12,8 +12,12 @@ const theme = createMuiTheme({
       color: '#FFF',
       borderBottom: '1px solid white',
       '@media (max-width: 960px)': {
-        fontSize: '3rem'
+        fontSize: '3rem',
       },
+    },
+    h2: {
+      color: 'white',
+      borderBottom: '1px solid white',
     },
     h5: {
       color: '#FFF',
@@ -21,6 +25,9 @@ const theme = createMuiTheme({
     h6: {
       color: '#FFF',
     },
+    subtitle1: {
+      color: 'white'
+    }
   },
 });
 

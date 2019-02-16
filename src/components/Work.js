@@ -12,7 +12,7 @@ const styles = {
   },
   gridList: {
 
-  }
+  },
 };
 
 class Work extends PureComponent {
@@ -46,7 +46,7 @@ class Work extends PureComponent {
 	}
 }`}
         render={data => (
-        
+
 
           <div className={classes.root}>
 
