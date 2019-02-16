@@ -4,7 +4,7 @@ import React from 'react';
 import {
   withStyles, AppBar, Toolbar, IconButton, Typography,
 } from '@material-ui/core';
-import ArrowBack from '@material-ui/icons/ArrowBack';
+// import ArrowBack from '@material-ui/icons/ArrowBack';
 import Name from './Name';
 import Logo from './Logo';
 
@@ -42,21 +42,15 @@ const styles = theme => ({
 });
 
 class Header extends React.PureComponent {
-  renderBackButton = () => (pathname !== '/' ? (
-    <IconButton>
-      <ArrowBack />
-    </IconButton>
-  ) : null)
+
 
   render() {
-    const { classes, atTop } = this.props;
+    const { classes, atTop, notOnIndex } = this.props;
 
     return (
       <div>
         <AppBar className={classes.root} position="fixed">
-
-          {/* {this.renderBackButton()} */}
-          <Name atTop={atTop} />
+          <Name notOnIndex={notOnIndex} atTop={atTop} />
 
           <Toolbar className={classes.toolbar}>
             <div className={classes.logo}>

@@ -12,7 +12,7 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
 
     },
-  
+
   },
   mobileName: {
     zIndex: 6000,
@@ -27,12 +27,15 @@ const styles = theme => ({
   },
 });
 
-function Name({ classes, atTop }) {
+function Name({ classes, atTop, notOnIndex }) {
+  
   return (
     <React.Fragment>
 
       <Hidden mdDown>
         <Spring
+        // Disables animation completly if not on Index
+          immediate={!!notOnIndex}
           delay={atTop ? null : 650}
           reverse={!atTop}
           from={{ top: '60vh', fontSize: '5rem' }}
