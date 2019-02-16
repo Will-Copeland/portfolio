@@ -19,6 +19,10 @@ const theme = createMuiTheme({
       color: 'white',
       borderBottom: '1px solid white',
     },
+    h3: {
+      color: '#FFF',
+      margin: '1rem'
+    },
     h5: {
       color: '#FFF',
     },

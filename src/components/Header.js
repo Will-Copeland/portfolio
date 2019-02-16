@@ -42,11 +42,11 @@ const styles = theme => ({
 });
 
 class Header extends React.PureComponent {
-
-
   render() {
-    const { classes, atTop, notOnIndex } = this.props;
-
+    const {
+      classes, atTop, notOnIndex, handleInternalNav,
+    } = this.props;
+    
     return (
       <div>
         <AppBar className={classes.root} position="fixed">
@@ -57,29 +57,38 @@ class Header extends React.PureComponent {
               <Logo />
 
             </div>
-            {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" /> */}
             <div className={classes.nav}>
-              {/* <Typography variant="h4" color="inherit" className={classes.grow}>
-          <Link
-            to="/"
-            className={classes.title}
-          >
-            {siteTitle}
-          </Link>
-        </Typography> */}
-
-              <Typography variant="h6" color="inherit" className={classes.grow}>
+        
+              <Typography
+                onClick={notOnIndex === undefined ? () => handleInternalNav(0) : null}
+                variant="h6"
+                color="inherit"
+                className={classes.grow}
+              >
                 <Link
                   to="/"
+                  // navigate to index & scroll to 0
+                  state={{ scrollTo: 0 }}
                   className={classes.title}
+                  // Scroll to page 0 when on index
                 >
           Home
                 </Link>
               </Typography>
-              <Typography variant="h6" color="inherit" className={classes.grow}>
+              <Typography
+                onClick={notOnIndex === undefined ? () => handleInternalNav(2) : null}
+                variant="h6"
+                color="inherit"
+                className={classes.grow}
+              >
                 <Link
-                  to="/work"
+                  to="/"
+                  // navigate to index & scroll to 2
+
+                  state={{ scrollTo: 2 }}
                   className={classes.title}
+                   // Scroll to page 2 when on index
+                  // onClick={() => handleInternalNav(2)}
                 >
           Work
                 </Link>

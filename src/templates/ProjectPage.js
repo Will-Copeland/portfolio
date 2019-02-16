@@ -62,13 +62,11 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
   <Layout notOnIndex>
     <div className={classes.root}>
       <div className={classes.flex}>
-        {post.frontmatter.imgPath.length > 0 ? post.frontmatter.imgPath.map(img => (
-          <img
-            className={classes.img}
-            src={post.frontmatter.imgPath[0].publicURL}
-            alt={post.frontmatter.title}
-          />
-        )) : null }
+        <img
+          className={classes.img}
+          src={post.frontmatter.imgPath[0].publicURL}
+          alt={post.frontmatter.title}
+        />
       </div>
 
       <div className={classes.textArea}>
@@ -86,7 +84,7 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
         <div className={classes.body} dangerouslySetInnerHTML={{ __html: post.html }} />
 
         <Typography variant="h6">Tools I used for this project:</Typography>
-        
+
         {post.frontmatter.toolsUsed.map(tool => <Chip className={classes.chip} label={tool} />)}
       </div>
 
@@ -99,6 +97,7 @@ export const query = graphql`
         html
         frontmatter {
           title
+          type
           toolsUsed
           externalLink
           imgPath {

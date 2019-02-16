@@ -7,7 +7,6 @@ import Jumbotron from '../components/Jumbotron';
 
 import SEO from '../components/seo';
 import Skills from '../components/Skills';
-import Name from '../components/Name';
 import Work from '../components/Work';
 
 const styles = {
@@ -26,57 +25,65 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
-
+    const { currentPage } = this.state;
+    const { location } = this.props;
+    console.log(location);
+    
+    try {
+      if (location.state.scrollTo !== null) {
+        if (location.state.scrollTo && location.state.scrollTo !== currentPage) {
+          this.handleScroll(location.state.scrollTo);
+        }
+      }
+    } catch (e) {
+      console.log(e);
+    }
   }
 
-  handleScroll = (e, page, cb) => {
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    this.setState({ currentPage: page });
+  handleInternalNav = (page) => {
+    const { currentPage } = this.state;
 
-    setTimeout(() => cb(), 500);
+    if (currentPage !== page) {
+      this.handleScroll(page);
+    }
+  }
+
+  handleScroll = (page) => {
+    this.setState({ currentPage: page });
+    setTimeout(() => this.parallax.scrollTo(page), 500);
   }
 
   render() {
-    const { classes, location: { pathname } } = this.props;
+    const { classes } = this.props;
     const { currentPage } = this.state;
-    console.log('currentPage', pathname);
-
-
     return (
       // identifies if user is on Index && current(parallax)Page is 0
-      <Layout onIndex={currentPage === 0}>
+      <Layout handleInternalNav={this.handleInternalNav} onIndex={currentPage === 0} handleWorkClick={this.handleWorkClick}>
 
 
         <SEO title="Will Copeland" keywords={['gatsby', 'William', 'react']} />
         <Parallax ref={ref => (this.parallax = ref)} pages={3}>
           <ParallaxLayer offset={0}>
 
-            <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 1, () => this.parallax.scrollTo(0.5))}>
+            <div className={classes.parallaxPage} role="presentation" onClick={() => this.handleScroll(1)}>
 
-              <ParallaxLayer offset={0.3} speed={0.6}>
-                <Jumbotron />
+              <Jumbotron />
 
-              </ParallaxLayer>
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={1} speed={0.2}>
+            <div className={classes.parallaxPage} role="presentation" onClick={() => this.handleScroll(2)}>
+              <Skills open={currentPage === 1} />
 
-
-            <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 2, () => this.parallax.scrollTo(2))}>
-              <ParallaxLayer offset={0.2} speed={1.3}>
-                <Skills open={currentPage === 1} />
-
-              </ParallaxLayer>
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2}>
-            <ParallaxLayer offset={1.4} speed={1.3}>
+            <div onClick={() => this.handleScroll(0)} className={classes.parallaxPage} role="presentation">
+
               <Work open={currentPage === 2} />
-              <div onClick={e => this.handleScroll(e, 0, () => this.parallax.scrollTo(0))} className={classes.parallaxPage} role="presentation" />
 
-            </ParallaxLayer>
 
+            </div>
           </ParallaxLayer>
         </Parallax>
 

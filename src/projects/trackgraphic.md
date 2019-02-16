@@ -1,6 +1,6 @@
 ---
 title: "Track Graphic"
-type: "JCKB"
+type: "Professional"
 externalLink: ""
 imgPath: 
     - '../images/project-images/grand-central.png'

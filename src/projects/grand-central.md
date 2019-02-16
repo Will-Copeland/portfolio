@@ -1,6 +1,6 @@
 ---
 title: 'Grand Central'
-type: 'JCKB'
+type: 'Professional'
 externalLink: 'http://jckb.com/projects#grandcentral'
 imgPath: 
     - '../images/project-images/grand-central.png'

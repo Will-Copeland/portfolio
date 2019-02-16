@@ -7,12 +7,21 @@ import ProjectCard from './ProjectCard';
 
 const styles = {
   root: {
-    display: 'static',
+    // display: 'inline-block',
     overflow: 'hidden',
+    width: '100%',
+    height: 'fit-content',
+    // marginTop: '2rem'
   },
-  gridList: {
-
+  title: {
+    textAlign: 'right',
+    paddingRight: '6rem',
+    overflow: 'hidden'
   },
+  content: {
+    display: 'flex',
+    justifyContent: 'space-around'
+  }
 };
 
 class Work extends PureComponent {
@@ -32,6 +41,7 @@ class Work extends PureComponent {
         fileAbsolutePath
         frontmatter {
           title
+          type
           toolsUsed
           imgPath {
             publicURL
@@ -50,11 +60,12 @@ class Work extends PureComponent {
 
           <div className={classes.root}>
 
-            <Typography variant="h1">Work</Typography>
+            <Typography className={classes.title} variant="h1">Work</Typography>
             <CardSpring openDelay open={open}>
-              <GridList cellHeight={180} className={classes.gridList}>
-                {data.allMarkdownRemark.edges.map(edge => <ProjectCard project={edge.node} />)}
-              </GridList>
+              <div className={classes.content}>
+                {data.allMarkdownRemark.edges.map(edge => <ProjectCard key={edge.node.id} project={edge.node} />)}
+
+              </div>
             </CardSpring>
           </div>
         )}

@@ -26,9 +26,10 @@ class Layout extends React.Component {
   }
 
 
-
   render() {
-    const { classes, children, notOnIndex } = this.props;
+    const {
+      classes, children, notOnIndex, handleInternalNav,
+    } = this.props;
     let { onIndex } = this.props;
     const { defaultNameState } = this.state;
 
@@ -36,6 +37,7 @@ class Layout extends React.Component {
     // to force a true/false outcome. i.e. if onIndex is 'undefined' it
     // now becomes false
     onIndex = onIndex === true;
+    console.log(notOnIndex);
 
     // onIndex overrides defaultNameState
     const atTop = defaultNameState !== onIndex;
@@ -61,7 +63,7 @@ class Layout extends React.Component {
 
               <div className={classes.layout}>
                 {/* notOnIndex disables animation, otherwise runs on every page load */}
-                <Header notOnIndex={notOnIndex} atTop={atTop} siteTitle={data.site.siteMetadata.title} />
+                <Header handleInternalNav={handleInternalNav} notOnIndex={notOnIndex} atTop={atTop} siteTitle={data.site.siteMetadata.title} />
                 <div
                   style={{
                     margin: '0 auto',
