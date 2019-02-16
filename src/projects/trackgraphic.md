@@ -1,5 +1,5 @@
 ---
-title: "TrackGrpahic"
+title: "TrackGraphic"
 type: "JCKB"
 imgPath: 
     - '../images/project-images/grand-central.png'
