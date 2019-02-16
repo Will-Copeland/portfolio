@@ -32,8 +32,8 @@ class IndexPage extends React.Component {
   handleScroll = (e, page, cb) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
-    console.log(page);
     this.setState({ currentPage: page });
+
     setTimeout(() => cb(), 500);
   }
 
@@ -42,9 +42,10 @@ class IndexPage extends React.Component {
     const { currentPage } = this.state;
     console.log('currentPage', pathname);
 
+
     return (
-      <Layout>
-        <Name atTop={currentPage > 0} />
+      // identifies if user is on Index && current(parallax)Page is 0
+      <Layout onIndex={currentPage === 0}>
 
 
         <SEO title="Will Copeland" keywords={['gatsby', 'William', 'react']} />
@@ -70,11 +71,11 @@ class IndexPage extends React.Component {
             </div>
           </ParallaxLayer>
           <ParallaxLayer offset={2}>
-            <div className={classes.parallaxPage} role="presentation" onClick={e => this.handleScroll(e, 0, () => this.parallax.scrollTo(0))}>
-              <ParallaxLayer offset={1.4} speed={1.3}>
-                <Work open={true} />
-              </ParallaxLayer>
-            </div>
+            <ParallaxLayer offset={1.4} speed={1.3}>
+              <Work open={currentPage === 2} />
+              <div onClick={e => this.handleScroll(e, 0, () => this.parallax.scrollTo(0))} className={classes.parallaxPage} role="presentation" />
+
+            </ParallaxLayer>
 
           </ParallaxLayer>
         </Parallax>

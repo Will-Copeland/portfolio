@@ -17,32 +17,29 @@ const styles = {
   },
 };
 
-class Layout extends React.PureComponent {
+class Layout extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      defaultNameState: true,
+    };
+  }
+  
+
+
   render() {
     const { classes, children } = this.props;
+    let { onIndex } = this.props;
+    const { defaultNameState } = this.state;
 
-    // Sample for fixing Name issue with changing pages, will send callback
-    // to <index.js/> to extract state, force Name to stay in header.
-
-    // Also fix "scrollTo" issue on clicking Project links
-
-    // Current page is available via React Router as this.props.location.pathname
-
-    // render() {
-    //   const children = React.Children.map(this.props.children, child => {
-    //     return React.cloneElement(child, {
-    //       someData: this.props.someData
-    //       someState: this.state.someState
-    //       someFunction: x => x
-    //     });
-    //   });
-    // return (
-    //     <div>
-    //       { children }
-    //     </div>
-    //   )
-    // }
-
+    // Because JS thinks undefined === true, I use another comparison
+    // to force a true/false outcome. i.e. if onIndex is 'undefined' it
+    // now becomes false
+    onIndex = onIndex === true;
+    
+    // onIndex overrides defaultNameState 
+    const atTop = defaultNameState !== onIndex;
+    
     return (
 
       <CssBaseline>
@@ -63,7 +60,7 @@ class Layout extends React.PureComponent {
 
 
               <div className={classes.layout}>
-                <Header siteTitle={data.site.siteMetadata.title} />
+                <Header atTop={atTop} siteTitle={data.site.siteMetadata.title} />
                 <div
                   style={{
                     margin: '0 auto',
