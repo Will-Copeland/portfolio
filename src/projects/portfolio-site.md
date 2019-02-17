@@ -3,7 +3,7 @@ title: "Portfolio Site"
 type: "Personal"
 externalLink: ""
 imgPath: 
-    - '../images/project-images/grand-central.png'
+    - '../images/project-images/portfolio.jpg'
 toolsUsed: ["Reactjs", "Gatsbyjs", "Material-UI", "NGINX", "react-spring"]
 excerpt: "This portfolio site"
 ---

@@ -29,6 +29,7 @@ const styles = theme => ({
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
+    overflow: 'hidden',
     height: '100%',
   },
   cards: {

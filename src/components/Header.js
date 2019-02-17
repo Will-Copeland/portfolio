@@ -1,10 +1,11 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import {
-  withStyles, AppBar, Toolbar, Typography,
+  withStyles, AppBar, Toolbar, Typography, Dialog,
 } from '@material-ui/core';
 import Name from './Name';
 import Logo from './Logo';
+import Contact from './Contact';
 
 
 const styles = theme => ({
@@ -32,7 +33,9 @@ const styles = theme => ({
       margin: '0 0.5rem 0 0.5rem',
 
     },
-
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   hidden: {
     opacity: 0,
@@ -40,11 +43,22 @@ const styles = theme => ({
 });
 
 class Header extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dialog: false,
+    };
+  }
+
+  handleDialogOpen = () => {
+    this.setState(prevState => ({ dialog: !prevState.dialog }));
+  }
+
   render() {
     const {
       classes, atTop, notOnIndex, handleInternalNav,
     } = this.props;
-
+    const { dialog } = this.state;
     return (
       <div>
         <AppBar className={classes.root} position="fixed">
@@ -93,9 +107,15 @@ class Header extends React.PureComponent {
           Work
                 </Link>
               </Typography>
-              <Typography variant="h6" color="inherit" className={classes.title}>
+              <Typography onClick={this.handleDialogOpen} variant="h6" color="inherit" className={classes.title}>
           Contact
               </Typography>
+              <Dialog
+                open={dialog}
+                onClose={this.handleDialogOpen}
+              >
+                <Contact />
+              </Dialog>
             </div>
           </Toolbar>
         </AppBar>

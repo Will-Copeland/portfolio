@@ -27,6 +27,8 @@ const styles = theme => ({
   },
   content: {
     width: '90%',
+    height: 'fit-content',
+    padding: '0.5rem'
   },
 });
 
@@ -38,7 +40,7 @@ class ProjectCard extends PureComponent {
 
   render() {
     const {
-      classes, project, trail
+      classes, project, trail,
     } = this.props;
     return (
       <Link style={trail} onClick={this.stopPropagation} className={classes.link} to={project.fields.slug}>
