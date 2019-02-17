@@ -13,7 +13,7 @@ had a blast sorting out the logic as a noobie.
 
 Tired of remembering to water the plants every morning and every evening,
 
-I hacked together some parts from Amazon and created this fine specimen.<
+I hacked together some parts from Amazon and created this fine specimen.
 
 
 I ended up using an Arduino UNO, a 110v fluid valve, an
