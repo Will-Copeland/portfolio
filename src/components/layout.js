@@ -2,6 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { withStyles, MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { Helmet } from 'react-helmet';
 import Background from '../images/bg2-1.webp';
 import Header from './Header';
 import Theme from '../utils/Theme';
@@ -43,6 +44,7 @@ class Layout extends React.Component {
 
       <CssBaseline>
         <MuiThemeProvider theme={Theme}>
+
           <StaticQuery
             query={graphql`
       query SiteTitleQuery {
@@ -56,6 +58,7 @@ class Layout extends React.Component {
             render={data => (
 
               <div className={classes.layout}>
+
                 {/* notOnIndex disables animation, otherwise runs on every page load */}
                 <Header handleInternalNav={handleInternalNav} notOnIndex={notOnIndex} atTop={atTop} siteTitle={data.site.siteMetadata.title} />
                 <div
@@ -66,6 +69,9 @@ class Layout extends React.Component {
                     overflowY: 'hidden',
                   }}
                 >
+                  <Helmet>
+                    <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet" />
+                  </Helmet>
                   <main style={{ width: 'fit-content' }}>{children}</main>
                   <footer />
                 </div>

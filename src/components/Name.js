@@ -4,6 +4,7 @@ import { Typography, withStyles, Hidden } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
+    fontSize: '0.6rem',
     position: 'absolute',
     color: 'white',
     zIndex: 1000,

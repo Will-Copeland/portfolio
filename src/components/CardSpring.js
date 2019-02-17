@@ -23,7 +23,7 @@ class CardSpring extends PureComponent {
       <Spring
         delay={!open ? 375 : 775}
         from={{ opacity: 0, bottom: 1000 }}
-        to={{ opacity: open ? 1 : 0, bottom: open ? 0 : 1000 }}
+        to={{ opacity: open ? 1 : 0, bottom: open ? 0 : 100000 }}
       >
         {props => (
           <div style={props} className={classes.root}>

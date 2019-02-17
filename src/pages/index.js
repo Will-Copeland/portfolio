@@ -28,7 +28,7 @@ class IndexPage extends React.Component {
     const { currentPage } = this.state;
     const { location } = this.props;
     console.log(location);
-    
+
     try {
       if (location.state.scrollTo !== null) {
         if (location.state.scrollTo && location.state.scrollTo !== currentPage) {
@@ -49,6 +49,8 @@ class IndexPage extends React.Component {
   }
 
   handleScroll = (page) => {
+    console.log('Scrolling To: ', page);
+
     this.setState({ currentPage: page });
     setTimeout(() => this.parallax.scrollTo(page), 500);
   }
@@ -63,28 +65,28 @@ class IndexPage extends React.Component {
 
 
         <SEO title="Will Copeland" keywords={['Frontend', 'Developer', 'React', 'React.js']} />
-        <Parallax scrolling={false} ref={ref => (this.parallax = ref)} pages={3}>
-          <ParallaxLayer offset={0}>
+        <Parallax ref={ref => (this.parallax = ref)} pages={3}>
+          <ParallaxLayer className={classes.parallaxPage} onClick={() => this.handleScroll(1)} offset={0}>
 
-            <div className={classes.parallaxPage} role="presentation" onClick={() => this.handleScroll(1)}>
+            {/* <div className={classes.parallaxPage} role="presentation" > */}
 
-              <Jumbotron open={currentPage === 0} />
+            <Jumbotron open={currentPage === 0} />
 
-            </div>
+            {/* </div> */}
           </ParallaxLayer>
-          <ParallaxLayer offset={1} speed={0.2}>
-            <div className={classes.parallaxPage} role="presentation" onClick={() => this.handleScroll(2)}>
-              <Skills open={currentPage === 1} />
+          <ParallaxLayer className={classes.parallaxPage} onClick={() => this.handleScroll(2)} offset={1} speed={0.2}>
+            {/* <div className={classes.parallaxPage} role="presentation" > */}
+            <Skills open={currentPage === 1} />
 
-            </div>
+            {/* </div> */}
           </ParallaxLayer>
-          <ParallaxLayer offset={2}>
-            <div onClick={() => this.handleScroll(0)} className={classes.parallaxPage} role="presentation">
+          <ParallaxLayer className={classes.parallaxPage} onClick={() => this.handleScroll(0)} offset={2}>
+            {/* <div  className={classes.parallaxPage} role="presentation"> */}
 
-              <Work open={currentPage === 2} />
+            <Work open={currentPage === 2} />
 
 
-            </div>
+            {/* </div> */}
           </ParallaxLayer>
         </Parallax>
 

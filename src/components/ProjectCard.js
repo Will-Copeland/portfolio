@@ -10,7 +10,7 @@ const styles = theme => ({
     width: '15rem',
     height: '25rem',
     [theme.breakpoints.down('md')]: {
-      width: '7rem',
+      width: '8rem',
       height: '11rem',
       margin: '1rem',
     },
@@ -38,10 +38,10 @@ class ProjectCard extends PureComponent {
 
   render() {
     const {
-      classes, project,
+      classes, project, trail
     } = this.props;
     return (
-      <Link onClick={this.stopPropagation} className={classes.link} to={project.fields.slug}>
+      <Link style={trail} onClick={this.stopPropagation} className={classes.link} to={project.fields.slug}>
         <Card className={classes.root} key={project.frontmatter.title}>
           <CardHeader title={project.frontmatter.title} subheader={`${project.frontmatter.type} Project`} />
           <Hidden mdDown>
