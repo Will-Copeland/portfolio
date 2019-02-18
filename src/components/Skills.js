@@ -9,17 +9,16 @@ const styles = theme => ({
   root: {
     position: 'relative',
     maxWidth: '100%',
-    top: '-20px',
-    margin: 'auto',
-    zIndex: 120000,
+    top: 100,
+    margin: '1rem',
     [theme.breakpoints.up('md')]: {
       display: 'inline-block',
 
-      top: 0,
-      left: '5%',
+      // top: -850,
+      // left: '5%',
     },
   },
-  list: {
+  content: {
     display: 'flex',
     flexDirection: 'column',
     position: 'relative',
@@ -65,7 +64,7 @@ class Skills extends PureComponent {
             <Typography className={classes.title} variant="h1">
                 Skills
             </Typography>
-            <div className={classes.list}>
+            <div className={classes.content}>
               <CardSpring open={open}>
                 <div className={classes.logoList}>
                   <SkillsLogos open={open} />

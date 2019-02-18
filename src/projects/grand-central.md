@@ -1,24 +1,27 @@
 ---
 title: 'Grand Central'
-type: 'JCKB'
+type: 'Professional'
+repo: ""
+externalLink: 'http://jckb.com/projects#grandcentral'
 imgPath: 
     - '../images/project-images/grand-central.png'
-toolsUsed: ["PouchDB", "Reactjs", "Material-UI"]
+toolsUsed: ["PouchDB", "Reactjs", "Material-UI", "Leaflet"]
 excerpt: 'PWA for RR crossing reporting'
 ---
 
 
-   Grand Central was created to solve the CPUC's problem of 
-          rail road crossing saftey reporting. Previously, technicians 
-          had to write down their findings, then pair those with images
-          and send them off to be manually inputted into their database. 
-          This process was tedious and error-prone.
+Grand Central was created to solve the CPUC's problem of 
+rail road crossing saftey reporting. Previously, technicians 
+had to write down their findings, then pair those with images
+and send them off to be manually inputted into their database. 
+This process was tedious and error-prone.
 
-          Grand Central solves this problem by asking recording responses 
-          using PouchDB and syncing with the server when connected to the
-          internet. The answers, pictures, and questions are all pre-sorted
-          and placed directly into the database. 
+Grand Central solves this problem by recording responses 
+using PouchDB and syncing with the server when connected to the
+internet. The answers, pictures, and questions are all pre-sorted, related
+and placed directly into the database. 
+
+This prevents the need for someone to manually enter items and technicians spending hours
+in hotel rooms pairing report items & answers with pictures.
           
-          This prevents the telephone-game effect, technicians spending hours
-          in hotel rooms pairing report items and answers with pictures, and 
-          a moderator inputting items into spreadsheets.
+It also allows for RR crossing "jobs" to be delegated by Role instead of Technician, this makes it easy to assign technicians different roles. 

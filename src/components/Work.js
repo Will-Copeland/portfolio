@@ -1,19 +1,54 @@
 import React, { PureComponent } from 'react';
-import { withStyles, Typography, GridList } from '@material-ui/core';
+import { withStyles, Typography } from '@material-ui/core';
 import { StaticQuery, graphql } from 'gatsby';
+import { Trail } from 'react-spring';
 import CardSpring from './CardSpring';
 import ProjectCard from './ProjectCard';
 
 
-const styles = {
+const styles = theme => ({
   root: {
-    display: 'static',
+    position: 'relative',
+    height: '100%',
+    margin: '1rem',
+    width: '90%',
+    top: 75,
+    maxWidth: '100%',
+    overflowY: 'auto',
+    [theme.breakpoints.up('md')]: {
+      // display: 'inline-block',
+      // right: '5%',
+      // float: 'right',
+      top: 150,
+
+    },
+  },
+  title: {
+    // textAlign: 'right',
     overflow: 'hidden',
   },
-  gridList: {
-
-  }
-};
+  content: {
+    overflow: 'hidden',
+  },
+  cards: {
+    display: 'flex',
+    // margin: '2rem',
+    // justifyContent: 'space-between',
+    [theme.breakpoints.down('md')]: {
+      // width: '7rem',
+      margin: 0,
+      // height: '10rem',
+      flexDirection: 'column',
+      // overflow: 'scroll',
+      flexWrap: 'wrap',
+      justifyContent: 'space-evenly',
+      // display: 'grid',
+      alignItems: 'center',
+      height: '100%',
+      width: '100%'
+    },
+  },
+});
 
 class Work extends PureComponent {
   render() {
@@ -32,6 +67,7 @@ class Work extends PureComponent {
         fileAbsolutePath
         frontmatter {
           title
+          type
           toolsUsed
           imgPath {
             publicURL
@@ -46,16 +82,24 @@ class Work extends PureComponent {
 	}
 }`}
         render={data => (
-        
-
           <div className={classes.root}>
-
-            <Typography variant="h1">Work</Typography>
-            <CardSpring openDelay open={open}>
-              <GridList cellHeight={180} className={classes.gridList}>
-                {data.allMarkdownRemark.edges.map(edge => <ProjectCard project={edge.node} />)}
-              </GridList>
-            </CardSpring>
+            <Typography className={classes.title} variant="h1">Work</Typography>
+            <div className={classes.content}>
+              <CardSpring openDelay open={open}>
+                <div className={classes.cards}>
+                  <Trail
+                    delay={!open ? 800 : 700}
+                    items={data.allMarkdownRemark.edges}
+                    reverse={!open}
+                    keys={edge => edge.node.id}
+                    from={{ transform: 'translate3d(0, 4000px,0)' }}
+                    to={open ? { transform: 'translate3d(0, 0,0)' } : { transform: 'translate3d(0,4000px,0)' }}
+                  >
+                    {item => props => <ProjectCard trail={props} project={item.node} />}
+                  </Trail>
+                </div>
+              </CardSpring>
+            </div>
           </div>
         )}
       />

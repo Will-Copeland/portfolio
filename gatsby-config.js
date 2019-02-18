@@ -12,65 +12,11 @@ module.exports = {
       ],
       workingKnowledge: [
         'GraphQL // Prisma',
-        'Node.js // Express',
-        'Next.js',
+        'Node.js // Next.js',
         'Leaflet',
+        'Docker',
       ],
     },
-    projects: [
-      {
-        title: 'Grand Central',
-        img: 'imgPath',
-        slug: '/grand-central/',
-        excerpt: 'PWA for RR crossing reporting',
-        description: `
-          Grand Central was created to solve the CPUC's problem of 
-          rail road crossing saftey reporting. Previously, technicians 
-          had to write down their findings, then pair those with images
-          and send them off to be manually inputted into their database. 
-          This process was tedious and error-prone.
-
-          Grand Central solves this problem by asking recording responses 
-          using PouchDB and syncing with the server when connected to the
-          internet. The answers, pictures, and questions are all pre-sorted
-          and placed directly into the database. 
-          
-          This prevents the telephone-game effect, technicians spending hours
-          in hotel rooms pairing report items and answers with pictures, and 
-          a moderator inputting items into spreadsheets.
-
-        `,
-        externalLink: '',
-      },
-      {
-        title: 'TrackGraphic',
-        img: 'imgPath',
-        slug: '/track-graphic',
-        excerpt: 'Driver-centric Ecommerce',
-        description: `
-          TrackGraphic was born as a concept for drivers to organize, compare, 
-          and compete at track events. 
-          
-          Right now, it is simply an ecommerce site. 
-          
-          We at JCKB have much more planned for this and are very excited about
-          TrackGraphic.
-        `,
-      },
-      {
-        title: 'Arduino Watering',
-        img: 'imgPath',
-        slug: '/arduino-watering',
-        excerpt: 'A bare-bones timed watering system solution',
-        description: `
-          Tired of remembering to water the plants every morning and every evening,
-          I hacked together some parts from Amazon and created this beauty.
-
-          This is the project that inspired me to start developing, as I
-          had a blast sorting out the logic as a noobie.
-        `,
-      },
-    ],
   },
   plugins: [
     'gatsby-plugin-react-helmet',
