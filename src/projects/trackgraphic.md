@@ -4,7 +4,7 @@ type: "Professional"
 externalLink: ""
 repo: ""
 imgPath: 
-    - '../images/project-images/grand-central.png'
+    - '../images/project-images/grand-central1.png'
 toolsUsed: ["React.js", "GraphQL", "Prisma", "Material-UI", "Next.js"]
 excerpt: "Driver-centric Ecommerce"
 ---
