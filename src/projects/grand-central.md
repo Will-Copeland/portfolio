@@ -4,7 +4,7 @@ type: 'Professional'
 repo: ""
 externalLink: 'http://jckb.com/projects#grandcentral'
 imgPath: 
-    - '../images/project-images/grand-central.png'
+    - '../images/project-images/grand-central1.png'
 toolsUsed: ["PouchDB", "Reactjs", "Material-UI", "Leaflet"]
 excerpt: 'PWA for RR crossing reporting'
 ---

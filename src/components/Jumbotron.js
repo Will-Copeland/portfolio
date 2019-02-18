@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { withStyles, Typography, Avatar } from '@material-ui/core';
-import Will from '../images/will.jpg';
+import Will from '../images/will1.jpg';
 import CardSpring from './CardSpring';
 
 const styles = theme => ({
