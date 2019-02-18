@@ -11,7 +11,7 @@ const styles = theme => ({
     position: 'relative',
     [theme.breakpoints.down('md')]: {
       position: 'relative',
-      top: '6rem',
+      top: 70,
     },
   },
   content: {
@@ -70,7 +70,7 @@ class Jumbotron extends PureComponent {
       <div className={classes.root}>
         <Typography className={classes.title} variant="h1">DEV // ENTHUSIAST</Typography>
         <div className={classes.content}>
-          <CardSpring open={open}>
+          <CardSpring noDelay open={open}>
             <div className={classes.me}>
               <Avatar alt="Will Copeland" src={Will} className={classes.avatar} />
               <div className={classes.pitch}>

@@ -15,7 +15,7 @@ const styles = theme => ({
       display: 'inline-block',
 
       // top: -850,
-      left: '5%',
+      // left: '5%',
     },
   },
   content: {

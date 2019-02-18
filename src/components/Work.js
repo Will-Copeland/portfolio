@@ -11,40 +11,41 @@ const styles = theme => ({
     position: 'relative',
     height: '100%',
     margin: '1rem',
+    width: '90%',
     top: 75,
-
+    maxWidth: '100%',
+    overflowY: 'auto',
     [theme.breakpoints.up('md')]: {
-      display: 'inline-block',
-      right: '5%',
-      float: 'right',
+      // display: 'inline-block',
+      // right: '5%',
+      // float: 'right',
       top: 150,
 
     },
   },
   title: {
-    textAlign: 'right',
+    // textAlign: 'right',
     overflow: 'hidden',
   },
   content: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
     overflow: 'hidden',
-    height: '100%',
   },
   cards: {
     display: 'flex',
-    justifyContent: 'space-between',
+    // margin: '2rem',
+    // justifyContent: 'space-between',
     [theme.breakpoints.down('md')]: {
       // width: '7rem',
+      margin: 0,
       // height: '10rem',
-      flexDirection: 'row',
-      overflow: 'scroll',
+      flexDirection: 'column',
+      // overflow: 'scroll',
       flexWrap: 'wrap',
       justifyContent: 'space-evenly',
       // display: 'grid',
       alignItems: 'center',
       height: '100%',
+      width: '100%'
     },
   },
 });

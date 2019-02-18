@@ -70,7 +70,7 @@ class Layout extends React.Component {
                   }}
                 >
                   <Helmet>
-                    <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" />
                   </Helmet>
                   <main style={{ width: 'fit-content' }}>{children}</main>
                   <footer />

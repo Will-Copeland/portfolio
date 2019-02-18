@@ -8,7 +8,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: 'font-family: "Unica One", cursive',
+    fontFamily:  '"Playfair Display", serif',
     h1: {
       color: '#FFF',
       borderBottom: '1px solid white',

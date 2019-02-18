@@ -18,9 +18,12 @@ const styles = theme => ({
 
 class CardSpring extends PureComponent {
   render() {
-    const { children, classes, open } = this.props;
+    const {
+      children, classes, open, noDelay,
+    } = this.props;
     return (
       <Spring
+        immediate={noDelay}
         delay={!open ? 375 : 575}
         from={{ opacity: 0, bottom: 1000 }}
         to={{ opacity: open ? 1 : 0, bottom: open ? 0 : 100000 }}

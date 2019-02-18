@@ -2,6 +2,7 @@
 title: 'All Cal Golf Cars'
 type: 'Professional'
 externalLink: 'http://allcalgolf.com/'
+repo: "https://github.com/Will-Copeland/AllCalGolf"
 imgPath:
     - '../images/project-images/allcalgolf.jpg'
 toolsUsed: ["WordPress", "PHP", "CSS"]

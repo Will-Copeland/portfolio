@@ -1,6 +1,7 @@
 ---
 title: 'Grand Central'
 type: 'Professional'
+repo: ""
 externalLink: 'http://jckb.com/projects#grandcentral'
 imgPath: 
     - '../images/project-images/grand-central.png'

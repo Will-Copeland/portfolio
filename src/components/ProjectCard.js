@@ -7,13 +7,16 @@ import { Link } from 'gatsby';
 const styles = theme => ({
   root: {
     margin: '2rem',
-    width: '15rem',
+    width: '100%',
     height: '25rem',
     [theme.breakpoints.down('md')]: {
-      width: '8rem',
-      height: '11rem',
+      width: '90%',
+      height: '90px',
       margin: '1rem',
     },
+  },
+  header: {
+    color: 'white',
   },
   link: {
     textDecoration: 'none',
@@ -28,7 +31,7 @@ const styles = theme => ({
   content: {
     width: '90%',
     height: 'fit-content',
-    padding: '0.5rem'
+    padding: '0.5rem',
   },
 });
 
@@ -43,21 +46,25 @@ class ProjectCard extends PureComponent {
       classes, project, trail,
     } = this.props;
     return (
-      <Link style={trail} onClick={this.stopPropagation} className={classes.link} to={project.fields.slug}>
-        <Card className={classes.root} key={project.frontmatter.title}>
-          <CardHeader title={project.frontmatter.title} subheader={`${project.frontmatter.type} Project`} />
+      <Card style={trail} className={classes.root} key={project.frontmatter.title}>
+        <Link  onClick={this.stopPropagation} className={classes.link} to={project.fields.slug}>
+
+          <CardHeader className={classes.header} title={project.frontmatter.title} subheader={`${project.frontmatter.type} Project`} />
+
+
           <Hidden mdDown>
             <CardMedia className={classes.cardImg} image={project.frontmatter.imgPath[0].publicURL} />
 
-          </Hidden>
-          <CardContent className={classes.content}>
-            <Typography variant="subtitle2">
-              {project.excerpt}
-            </Typography>
 
-          </CardContent>
-        </Card>
-      </Link>
+            <CardContent className={classes.content}>
+              <Typography variant="subtitle2">
+                {project.excerpt}
+              </Typography>
+
+            </CardContent>
+          </Hidden>
+        </Link>
+      </Card>
     );
   }
 }

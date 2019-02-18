@@ -30,10 +30,11 @@ const styles = theme => ({
   img: {
     maxWidth: '100%',
     maxHeight: '100%',
-    margin: '1rem'
+    margin: '1rem',
   },
   externalLink: {
     margin: '1rem',
+    color: 'white',
   },
   textArea: {
     color: 'white',
@@ -72,16 +73,30 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
 
       <div className={classes.textArea}>
         <Typography className={classes.title} variant="h2">{post.frontmatter.title}</Typography>
-        <Typography className={classes.externalLink} variant="h4">
-          {post.frontmatter.externalLink.length > 0
-            ? (
+        {post.frontmatter.externalLink.length > 0
+          ? (
+            <Typography className={classes.externalLink} variant="h4">
               <a target="_blank" rel="noopener noreferrer" href={post.frontmatter.externalLink}>
             Project Site
               </a>
-            )
-            : null}
-        </Typography>
-
+            </Typography>
+          )
+          : null}
+        {post.frontmatter.repo.length > 0
+          ? (
+            <Typography className={classes.externalLink} variant="h4">
+              <a lassName={classes.externalLink} target="_blank" rel="noopener noreferrer" href={post.frontmatter.repo}>
+            GitHub Repo
+              </a>
+            </Typography>
+          )
+          : (
+            <Typography className={classes.externalLink} variant="h4">
+              <s>GitHub Repo </s>
+NDA restricted :(
+            </Typography>
+          )
+          }
         <div className={classes.body} dangerouslySetInnerHTML={{ __html: post.html }} />
 
         <Typography variant="h6">Tools I used for this project:</Typography>
@@ -99,6 +114,7 @@ export const query = graphql`
         frontmatter {
           title
           type
+          repo
           toolsUsed
           externalLink
           imgPath {

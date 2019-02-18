@@ -12,9 +12,9 @@ module.exports = {
       ],
       workingKnowledge: [
         'GraphQL // Prisma',
-        'Node.js // Express',
-        'Next.js',
+        'Node.js // Next.js',
         'Leaflet',
+        'Docker',
       ],
     },
   },
