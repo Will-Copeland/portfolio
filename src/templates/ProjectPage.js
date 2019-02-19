@@ -20,6 +20,7 @@ const styles = theme => ({
   },
   container: {
     overflowX: 'scroll',
+    // padding: '0 5rem 0 5rem',
     [theme.breakpoints.up('md')]: {
       width: '100%',
       overflow: 'hidden',
@@ -27,13 +28,14 @@ const styles = theme => ({
   },
   flex: {
     display: 'flex',
-    overflow: 'hidden',
+    // overflow: 'hidden',
+    width: 'fit-content',
     maxWidth: '300%',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     justifyContent: 'space-evenly',
     [theme.breakpoints.up('md')]: {
       height: '100%',
-      width: '90%',
+      width: '100%',
       margin: '1rem',
       flexDirection: 'row',
       flexWrap: 'wrap',
@@ -47,23 +49,22 @@ const styles = theme => ({
     },
   },
   multipleImg: {
-    width: '200px',
+    // width: '200px',
     [theme.breakpoints.up('md')]: {
       width: '25%',
     },
   },
   imgContainer: {
     display: 'flex',
-    height: '10%',
+    height: '10rem',
     margin: '0 0.5rem 0 0.5rem',
     backgroundSize: 'contain',
     [theme.breakpoints.up('md')]: {
-      height: 'fit-content',
+      height: '20rem',
       marginRight: '2rem',
     },
   },
   img: {
-    maxWidth: '100%',
     maxHeight: '100%',
     [theme.breakpoints.up('md')]: {
     },

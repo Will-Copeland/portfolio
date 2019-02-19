@@ -21,7 +21,7 @@ const theme = createMuiTheme({
       color: 'white',
       fontFamily: '"Playfair Display", serif',
 
-      borderBottom: '1px solid white',
+      // borderBottom: '1px solid white',
     },
     h3: {
       color: '#FFF',
