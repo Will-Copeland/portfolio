@@ -35,7 +35,7 @@ const styles = theme => ({
     justifyContent: 'space-evenly',
     [theme.breakpoints.up('md')]: {
       height: '100%',
-      width: '90%',
+      width: '100%',
       margin: '1rem',
       flexDirection: 'row',
       flexWrap: 'wrap',
@@ -60,7 +60,7 @@ const styles = theme => ({
     margin: '0 0.5rem 0 0.5rem',
     backgroundSize: 'contain',
     [theme.breakpoints.up('md')]: {
-      height: 'fit-content',
+      height: '20rem',
       marginRight: '2rem',
     },
   },
