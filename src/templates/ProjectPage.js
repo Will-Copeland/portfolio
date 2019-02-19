@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import classnames from 'classnames';
 import { withStyles, Typography, Chip } from '@material-ui/core';
 import Layout from '../components/layout';
 
@@ -14,40 +15,64 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       display: 'flex',
       flexDirection: 'row-reverse',
-      justifyContent: 'flex-end',
+      justifyContent: 'space-evenly',
     },
   },
   container: {
     overflowX: 'scroll',
+    [theme.breakpoints.up('md')]: {
+      width: '100%',
+      overflow: 'hidden',
+    },
   },
   flex: {
     display: 'flex',
     // flexWrap: 'wrap',
     // height: '14rem',
-    overflow: 'scroll',
+    overflow: 'hidden',
     maxWidth: '300%',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     justifyContent: 'space-evenly',
     [theme.breakpoints.up('md')]: {
+      // display: 'grid',
       height: '100%',
-      width: 'fit-content',
+      width: '90%',
       margin: '1rem',
-      flexDirection: 'column',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'flex-start',
       backgroundColor: 'inherit',
     },
   },
-  imgContainer: {
-    // display: 'flex',
+  singleImg: {
+    [theme.breakpoints.up('md')]: {
+      width: '100%',
+
+    },
+  },
+  multipleImg: {
     width: '200px',
+    [theme.breakpoints.up('md')]: {
+      width: '25%',
+    },
+  },
+  imgContainer: {
+    display: 'flex',
     height: '10%',
     margin: '0 0.5rem 0 0.5rem',
     backgroundSize: 'contain',
+    [theme.breakpoints.up('md')]: {
+      // width: '25%',
+      // maxWidth: '100%',
+      height: 'fit-content',
+      marginRight: '2rem',
+    },
   },
   img: {
     maxWidth: '100%',
     maxHeight: '100%',
     [theme.breakpoints.up('md')]: {
-      margin: '1rem',
+      // margin: '1rem',
 
 
     },
@@ -88,7 +113,7 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
 
         <div className={classes.flex}>
           {post.frontmatter.imgPath.map(img => (
-            <div className={classes.imgContainer}>
+            <div className={classnames(classes.imgContainer, post.frontmatter.imgPath.length > 1 ? classes.multipleImg : classes.singleImg)}>
               <img
                 className={classes.img}
                 src={img.publicURL}
