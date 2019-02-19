@@ -9,12 +9,14 @@ module.exports = {
         'React.js',
         'Material-UI',
         'CSS3 // Grid // Flexbox',
+        'Webpack // Babel',
       ],
       workingKnowledge: [
-        'GraphQL // Prisma',
+        'GraphQL // Prisma // Apollo',
         'Node.js // Next.js',
         'Leaflet',
         'Docker',
+        'Flow'
       ],
     },
   },

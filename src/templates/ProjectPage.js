@@ -13,17 +13,21 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       display: 'flex',
       flexDirection: 'row-reverse',
+      justifyContent: 'flex-end',
     },
   },
   flex: {
     display: 'flex',
-    height: '14rem',
+    height: '14px',
+    // overflow: 'hidden',
     width: '100%',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     justifyContent: 'space-evenly',
     [theme.breakpoints.up('md')]: {
       height: '100%',
+      width: 'fit-content',
       margin: '1rem',
+      flexDirection: 'column',
       backgroundColor: 'inherit',
     },
   },
@@ -35,6 +39,7 @@ const styles = theme => ({
   externalLink: {
     margin: '1rem',
     color: 'white',
+    // textDecoration: 'none',
   },
   textArea: {
     color: 'white',
@@ -64,11 +69,16 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
   <Layout notOnIndex>
     <div className={classes.root}>
       <div className={classes.flex}>
-        <img
-          className={classes.img}
-          src={post.frontmatter.imgPath[0].publicURL}
-          alt={post.frontmatter.title}
-        />
+        {post.frontmatter.imgPath.map(img => (
+          <div className={classes.imgContainer}>
+            <img
+              className={classes.img}
+              src={img.publicURL}
+              alt={post.frontmatter.title}
+              key={img.publicURL}
+            />
+          </div>
+        ))}
       </div>
 
       <div className={classes.textArea}>
@@ -76,7 +86,7 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
         {post.frontmatter.externalLink.length > 0
           ? (
             <Typography className={classes.externalLink} variant="h4">
-              <a target="_blank" rel="noopener noreferrer" href={post.frontmatter.externalLink}>
+              <a className={classes.externalLink} target="_blank" rel="noopener noreferrer" href={post.frontmatter.externalLink}>
             Project Site
               </a>
             </Typography>
@@ -85,7 +95,7 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
         {post.frontmatter.repo.length > 0
           ? (
             <Typography className={classes.externalLink} variant="h4">
-              <a lassName={classes.externalLink} target="_blank" rel="noopener noreferrer" href={post.frontmatter.repo}>
+              <a className={classes.externalLink} target="_blank" rel="noopener noreferrer" href={post.frontmatter.repo}>
             GitHub Repo
               </a>
             </Typography>
