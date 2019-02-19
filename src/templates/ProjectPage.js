@@ -27,14 +27,11 @@ const styles = theme => ({
   },
   flex: {
     display: 'flex',
-    // flexWrap: 'wrap',
-    // height: '14rem',
     overflow: 'hidden',
     maxWidth: '300%',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     justifyContent: 'space-evenly',
     [theme.breakpoints.up('md')]: {
-      // display: 'grid',
       height: '100%',
       width: '90%',
       margin: '1rem',
@@ -47,7 +44,6 @@ const styles = theme => ({
   singleImg: {
     [theme.breakpoints.up('md')]: {
       width: '100%',
-
     },
   },
   multipleImg: {
@@ -62,8 +58,6 @@ const styles = theme => ({
     margin: '0 0.5rem 0 0.5rem',
     backgroundSize: 'contain',
     [theme.breakpoints.up('md')]: {
-      // width: '25%',
-      // maxWidth: '100%',
       height: 'fit-content',
       marginRight: '2rem',
     },
@@ -72,15 +66,11 @@ const styles = theme => ({
     maxWidth: '100%',
     maxHeight: '100%',
     [theme.breakpoints.up('md')]: {
-      // margin: '1rem',
-
-
     },
   },
   externalLink: {
     margin: '1rem',
     color: 'white',
-    // textDecoration: 'none',
   },
   textArea: {
     color: 'white',
@@ -109,8 +99,8 @@ const styles = theme => ({
 const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
   <Layout notOnIndex>
     <div className={classes.root}>
-      <div className={classes.container}>
 
+      <div className={classes.container}>
         <div className={classes.flex}>
           {post.frontmatter.imgPath.map(img => (
             <div className={classnames(classes.imgContainer, post.frontmatter.imgPath.length > 1 ? classes.multipleImg : classes.singleImg)}>
@@ -153,11 +143,12 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
             </Typography>
           )
           }
-        <div className={classes.body} dangerouslySetInnerHTML={{ __html: post.html }} />
-
         <Typography variant="h6">Tools I used for this project:</Typography>
 
         {post.frontmatter.toolsUsed.map(tool => <Chip className={classes.chip} label={tool} />)}
+        <div className={classes.body} dangerouslySetInnerHTML={{ __html: post.html }} />
+
+
       </div>
 
     </div>

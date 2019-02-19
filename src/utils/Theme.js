@@ -8,10 +8,10 @@ const theme = createMuiTheme({
     },
   },
   typography: {
+    fontFamily: "'Montserrat', sans-serif",
     h1: {
       color: '#FFF',
-      fontFamily:  '"Playfair Display", serif',
-
+      fontFamily: '"Playfair Display", serif',
       borderBottom: '1px solid white',
       '@media (max-width: 960px)': {
         fontSize: '3rem',
@@ -19,16 +19,16 @@ const theme = createMuiTheme({
     },
     h2: {
       color: 'white',
-      fontFamily:  '"Playfair Display", serif',
+      fontFamily: '"Playfair Display", serif',
 
       borderBottom: '1px solid white',
     },
     h3: {
       color: '#FFF',
-      margin: '1rem'
+      margin: '1rem',
     },
     h5: {
-      fontFamily:  '"Playfair Display", serif',
+      fontFamily: '"Playfair Display", serif',
       color: '#FFF',
     },
     h6: {
@@ -36,7 +36,7 @@ const theme = createMuiTheme({
     },
     subtitle1: {
       fontFamily: "'Montserrat', sans-serif",
-      color: 'white'
+      color: 'white',
     },
     body1: {
       color: 'white',
@@ -46,7 +46,7 @@ const theme = createMuiTheme({
       '@media (max-width: 960px)': {
         fontSize: '1rem',
       },
-    }
+    },
   },
 });
 

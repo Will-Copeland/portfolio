@@ -85,14 +85,9 @@ class Jumbotron extends PureComponent {
                   based out of the SF bay area.
                 </Typography>
               </div>
-
             </div>
-
           </CardSpring>
-
         </div>
-
-
       </div>
     );
   }
