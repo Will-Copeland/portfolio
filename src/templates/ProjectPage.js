@@ -10,17 +10,22 @@ const styles = theme => ({
     width: '100%',
     position: 'absolute',
     overflowY: 'auto',
+    overflowX: 'hidden',
     [theme.breakpoints.up('md')]: {
       display: 'flex',
       flexDirection: 'row-reverse',
       justifyContent: 'flex-end',
     },
   },
+  container: {
+    overflowX: 'scroll',
+  },
   flex: {
     display: 'flex',
-    height: '14px',
-    // overflow: 'hidden',
-    width: '100%',
+    // flexWrap: 'wrap',
+    // height: '14rem',
+    overflow: 'scroll',
+    maxWidth: '300%',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     justifyContent: 'space-evenly',
     [theme.breakpoints.up('md')]: {
@@ -31,10 +36,21 @@ const styles = theme => ({
       backgroundColor: 'inherit',
     },
   },
+  imgContainer: {
+    // display: 'flex',
+    width: '200px',
+    height: '10%',
+    margin: '0 0.5rem 0 0.5rem',
+    backgroundSize: 'contain',
+  },
   img: {
     maxWidth: '100%',
     maxHeight: '100%',
-    margin: '1rem',
+    [theme.breakpoints.up('md')]: {
+      margin: '1rem',
+
+
+    },
   },
   externalLink: {
     margin: '1rem',
@@ -68,18 +84,22 @@ const styles = theme => ({
 const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
   <Layout notOnIndex>
     <div className={classes.root}>
-      <div className={classes.flex}>
-        {post.frontmatter.imgPath.map(img => (
-          <div className={classes.imgContainer}>
-            <img
-              className={classes.img}
-              src={img.publicURL}
-              alt={post.frontmatter.title}
-              key={img.publicURL}
-            />
-          </div>
-        ))}
+      <div className={classes.container}>
+
+        <div className={classes.flex}>
+          {post.frontmatter.imgPath.map(img => (
+            <div className={classes.imgContainer}>
+              <img
+                className={classes.img}
+                src={img.publicURL}
+                alt={post.frontmatter.title}
+                key={img.publicURL}
+              />
+            </div>
+          ))}
+        </div>
       </div>
+
 
       <div className={classes.textArea}>
         <Typography className={classes.title} variant="h2">{post.frontmatter.title}</Typography>
