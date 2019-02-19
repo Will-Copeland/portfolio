@@ -81,8 +81,8 @@ class Jumbotron extends PureComponent {
                  Developer // Mechanic // Tinkerer
                 </Typography>
                 <Typography className={classes.pitchBody} variant="body1">
-                  I'm a versatile frontend developer specializing in React,
-                  based out of the SF bay area.
+                  I'm a versatile developer specializing in building frontend applications focusing
+                  on user experience with advanced tools like React, GraphQL, NextJS, and Docker.
                 </Typography>
               </div>
             </div>
