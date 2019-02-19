@@ -9,7 +9,7 @@ const styles = theme => ({
   root: {
     position: 'relative',
     maxWidth: '100%',
-    top: 100,
+    top: 75,
     margin: '1rem',
     [theme.breakpoints.up('md')]: {
       display: 'inline-block',

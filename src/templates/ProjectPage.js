@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import classnames from 'classnames';
 import { withStyles, Typography, Chip } from '@material-ui/core';
 import Layout from '../components/layout';
 
@@ -10,27 +11,62 @@ const styles = theme => ({
     width: '100%',
     position: 'absolute',
     overflowY: 'auto',
+    overflowX: 'hidden',
     [theme.breakpoints.up('md')]: {
       display: 'flex',
       flexDirection: 'row-reverse',
+      justifyContent: 'space-evenly',
+    },
+  },
+  container: {
+    overflowX: 'scroll',
+    [theme.breakpoints.up('md')]: {
+      width: '100%',
+      overflow: 'hidden',
     },
   },
   flex: {
     display: 'flex',
-    height: '14rem',
-    width: '100%',
+    overflow: 'hidden',
+    maxWidth: '300%',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     justifyContent: 'space-evenly',
     [theme.breakpoints.up('md')]: {
       height: '100%',
+      width: '90%',
       margin: '1rem',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'flex-start',
       backgroundColor: 'inherit',
+    },
+  },
+  singleImg: {
+    [theme.breakpoints.up('md')]: {
+      width: '100%',
+    },
+  },
+  multipleImg: {
+    width: '200px',
+    [theme.breakpoints.up('md')]: {
+      width: '25%',
+    },
+  },
+  imgContainer: {
+    display: 'flex',
+    height: '10%',
+    margin: '0 0.5rem 0 0.5rem',
+    backgroundSize: 'contain',
+    [theme.breakpoints.up('md')]: {
+      height: 'fit-content',
+      marginRight: '2rem',
     },
   },
   img: {
     maxWidth: '100%',
     maxHeight: '100%',
-    margin: '1rem',
+    [theme.breakpoints.up('md')]: {
+    },
   },
   externalLink: {
     margin: '1rem',
@@ -63,20 +99,29 @@ const styles = theme => ({
 const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
   <Layout notOnIndex>
     <div className={classes.root}>
-      <div className={classes.flex}>
-        <img
-          className={classes.img}
-          src={post.frontmatter.imgPath[0].publicURL}
-          alt={post.frontmatter.title}
-        />
+
+      <div className={classes.container}>
+        <div className={classes.flex}>
+          {post.frontmatter.imgPath.map(img => (
+            <div className={classnames(classes.imgContainer, post.frontmatter.imgPath.length > 1 ? classes.multipleImg : classes.singleImg)}>
+              <img
+                className={classes.img}
+                src={img.publicURL}
+                alt={post.frontmatter.title}
+                key={img.publicURL}
+              />
+            </div>
+          ))}
+        </div>
       </div>
+
 
       <div className={classes.textArea}>
         <Typography className={classes.title} variant="h2">{post.frontmatter.title}</Typography>
         {post.frontmatter.externalLink.length > 0
           ? (
             <Typography className={classes.externalLink} variant="h4">
-              <a target="_blank" rel="noopener noreferrer" href={post.frontmatter.externalLink}>
+              <a className={classes.externalLink} target="_blank" rel="noopener noreferrer" href={post.frontmatter.externalLink}>
             Project Site
               </a>
             </Typography>
@@ -85,7 +130,7 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
         {post.frontmatter.repo.length > 0
           ? (
             <Typography className={classes.externalLink} variant="h4">
-              <a lassName={classes.externalLink} target="_blank" rel="noopener noreferrer" href={post.frontmatter.repo}>
+              <a className={classes.externalLink} target="_blank" rel="noopener noreferrer" href={post.frontmatter.repo}>
             GitHub Repo
               </a>
             </Typography>
@@ -93,15 +138,17 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
           : (
             <Typography className={classes.externalLink} variant="h4">
               <s>GitHub Repo </s>
-NDA restricted :(
+              <br />
+              NDA restricted :(
             </Typography>
           )
           }
-        <div className={classes.body} dangerouslySetInnerHTML={{ __html: post.html }} />
-
         <Typography variant="h6">Tools I used for this project:</Typography>
 
         {post.frontmatter.toolsUsed.map(tool => <Chip className={classes.chip} label={tool} />)}
+        <div className={classes.body} dangerouslySetInnerHTML={{ __html: post.html }} />
+
+
       </div>
 
     </div>

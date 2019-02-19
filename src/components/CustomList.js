@@ -9,6 +9,8 @@ const styles = theme => ({
     position: 'relative',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     width: '100%',
+    padding: 0,
+    margin: 0,
     [theme.breakpoints.up('md')]: {
 
     },
@@ -19,8 +21,10 @@ const styles = theme => ({
     [theme.breakpoints.up('md')]: {
       paddingLeft: '1rem',
     },
-
-
+  },
+  listItem: {
+    padding: 0,
+    margin: 0,
   },
   divider: {
     backgroundColor: 'white',
@@ -38,9 +42,7 @@ const CustomList = ({
         <Typography variant="h5">
           {title}
           <Divider className={classes.divider} variant="middle" />
-
         </Typography>
-
       </ListItem>
       <List dense className={classes.list}>
         <Trail
