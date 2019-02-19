@@ -27,7 +27,7 @@ const styles = theme => ({
     flexDirection: 'row-reverse',
     [theme.breakpoints.down('md')]: {
       flexDirection: 'column',
-      margin: '1rem auto'
+      margin: '1rem auto',
     },
   },
   pitch: {
@@ -37,15 +37,18 @@ const styles = theme => ({
     [theme.breakpoints.down('md')]: {
       margin: 'auto',
       width: '100%',
-      padding: '1rem'
+      padding: '1rem',
     },
   },
   pitchBody: {
     width: '80%',
-    margin: 'auto'
+    margin: 'auto',
+    fontFamily: "'Montserrat', sans-serif",
+
   },
   subTitle: {
     marginBottom: '2rem',
+    fontFamily: "'Montserrat', sans-serif",
   },
   avatar: {
     width: 300,
@@ -54,7 +57,7 @@ const styles = theme => ({
     [theme.breakpoints.down('md')]: {
       margin: 'auto',
       width: 200,
-      height: 200
+      height: 200,
     },
     // float: 'right',
     // top: '-12rem',
@@ -78,9 +81,8 @@ class Jumbotron extends PureComponent {
                  Developer // Mechanic // Tinkerer
                 </Typography>
                 <Typography className={classes.pitchBody} variant="body1">
-                  When I'm not creating next-gen web apps, you can find me
-                  enjoying the wonders of motorsport, tinkering with some new
-                  invention, or roaming around the greater Bay Area.
+                  I'm a versatile frontend developer specializing in React,
+                  based out of the SF bay area.
                 </Typography>
               </div>
 
