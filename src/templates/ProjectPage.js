@@ -29,10 +29,11 @@ const styles = theme => ({
   flex: {
     display: 'flex',
     // overflow: 'hidden',
-    width: 'fit-content',
+    width: '100%',
     maxWidth: '300%',
+    margin: 'auto',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
     [theme.breakpoints.up('md')]: {
       height: '100%',
       width: '100%',
@@ -58,6 +59,7 @@ const styles = theme => ({
     display: 'flex',
     height: '10rem',
     margin: '0 0.5rem 0 0.5rem',
+
     backgroundSize: 'contain',
     [theme.breakpoints.up('md')]: {
       height: '20rem',
