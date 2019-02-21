@@ -142,7 +142,11 @@ const ProjectPage = ({ data: { markdownRemark: post }, classes }) => (
             <Typography className={classes.externalLink} variant="h4">
               <s>GitHub Repo </s>
               <br />
-              NDA restricted :(
+              NDA restricted
+              {' '}
+              <br />
+              {' '}
+              :(
             </Typography>
           )
           }
