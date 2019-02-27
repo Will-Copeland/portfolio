@@ -3,18 +3,10 @@ import { StaticQuery, graphql } from 'gatsby';
 import { withStyles, MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Helmet } from 'react-helmet';
-import Background from '../images/bg2-1.webp';
-import Header from './Header';
 import Theme from '../utils/Theme';
-import layout from './layout.css';
 
 const styles = {
-  layout: {
-    height: '100vh',
-    backgroundImage: `url(${Background})`,
-    backgroundSize: '100% 100%',
-    backgroundRepeat: 'repeat',
-  },
+
 };
 
 class Layout extends React.Component {
@@ -57,10 +49,9 @@ class Layout extends React.Component {
     `}
             render={data => (
 
-              <div className={classes.layout}>
+              <div className={classes.root}>
 
-                {/* notOnIndex disables animation, otherwise runs on every page load */}
-                <Header handleInternalNav={handleInternalNav} notOnIndex={notOnIndex} atTop={atTop} siteTitle={data.site.siteMetadata.title} />
+                <Header siteTitle={data.site.siteMetadata.title} />
                 <div
                   style={{
                     margin: '0 auto',
