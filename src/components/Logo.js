@@ -19,7 +19,7 @@ const Logo = classes => (
     style={
       {
         width: '5rem',
-        margin: '1rem 0 0 1rem'
+        margin: 'auto 1rem auto 1rem'
       }
   }
     alt="logo"
