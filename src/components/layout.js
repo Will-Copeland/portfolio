@@ -4,7 +4,6 @@ import { withStyles, MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Helmet } from 'react-helmet';
 import Theme from '../utils/Theme';
-import Header from './Header';
 
 const styles = {
 

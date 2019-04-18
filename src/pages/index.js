@@ -10,7 +10,7 @@ const styles = {
 
 };
 
-class IndexPage extends React.Component {
+class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -28,4 +28,4 @@ class IndexPage extends React.Component {
   }
 }
 
-export default withStyles(styles)(IndexPage);
+export default withStyles(styles)(Index);

@@ -1,33 +1,47 @@
 import React from 'react';
+import { Spring, config } from 'react-spring';
 import { withStyles, Typography } from '@material-ui/core';
 
 const styles = theme => ({
-  // root: {
-  //   backgroundColor: theme.palette.primary.main,
-  //   height: '43.3vh',
-  //   width: '100%',
-  //   display: 'flex',
-  //   flexDirection: 'column',
-  //   justifyContent: 'flex-end'
-  // },
-  // intro: {
-  //   margin: '1.5rem 1.5rem 3rem 1.5rem'
-  // }
+  root: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
+  },
+  subtitle: {
+    marginTop: '1rem',
+  },
 });
 
 const Jumbotron = ({ classes }) => (
-  // <div className={classes.root}>
-    <div className={classes.intro}>
-      <Typography>
-            Frontend Software Developer
-      </Typography>
-      <Typography variant="subtitle1">
-         I am a frontend software engineer based in the SF Bay area.
-          This is my portfolio and blog which details my skills and experience.
-      </Typography>
-    </div>
 
-  // </div>
+  <Spring
+    from={{ opacity: 0 }}
+    to={{ opacity: 1 }}
+    config={config.molasses}
+  >
+    {props => (
+      <div className={classes.root} style={props}>
+        <Typography variant="h2">
+            Hi, I'm Will
+        </Typography>
+        <Spring
+          from={{ opacity: -1 }}
+          to={{ opacity: 1 }}
+          config={config.molasses}
+        >
+          {props2 => (
+
+            <Typography style={props2} className={classes.subtitle} variant="body1">
+            I make ideas come to life with code.
+            </Typography>
+          )}
+        </Spring>
+      </div>
+    )}
+  </Spring>
 );
 
 
