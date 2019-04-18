@@ -21,17 +21,9 @@ class Layout extends React.Component {
 
   render() {
     const {
-      classes, children, notOnIndex, handleInternalNav,
+      classes, children
     } = this.props;
-    let { onIndex } = this.props;
-    const { defaultNameState } = this.state;
-
-    // Because JS thinks undefined === true, I use another comparison
-    // to force a true/false outcome. i.e. if onIndex is 'undefined' it
-    // now becomes false
-    onIndex = onIndex === true;
-    // onIndex overrides defaultNameState
-    const atTop = defaultNameState !== onIndex;
+ 
 
     return (
 
@@ -51,7 +43,7 @@ class Layout extends React.Component {
                 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
               </Helmet>
               <Header />
-              <main style={{ width: 'fit-content' }}>{children}</main>
+              <main>{children}</main>
               <footer />
             </div>
           </div>
