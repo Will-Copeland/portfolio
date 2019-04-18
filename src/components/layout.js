@@ -10,20 +10,12 @@ const styles = {
 
 };
 
-class Layout extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      defaultNameState: true,
-    };
-  }
-
-
+class Layout extends React.PureComponent {
   render() {
     const {
-      classes, children
+      classes, children,
     } = this.props;
- 
+
 
     return (
 
