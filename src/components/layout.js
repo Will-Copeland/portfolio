@@ -34,7 +34,6 @@ class Layout extends React.PureComponent {
                 <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
               </Helmet>
-              <Header />
               <main>{children}</main>
               <footer />
             </div>
