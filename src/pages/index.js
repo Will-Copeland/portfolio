@@ -1,28 +1,56 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
+import { Spring, config } from 'react-spring';
 import Layout from '../components/layout';
-
 import SEO from '../components/seo';
 import Jumbotron from '../components/Jumbotron';
+import Detail from '../components/Detail';
 
 
 const styles = {
-
+  root: {
+    width: '100vw',
+    height: '100vh',
+  },
 };
 
 class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      showDetail: false,
+    };
   }
+
+  handleClick = () => {
+    this.setState({ showDetail: true });
+  }
+
+  renderDetail = () => (
+    <Spring
+      from={{ opacity: -1 }}
+      to={{ opacity: 1 }}
+      config={config.molasses}
+    >
+      {props => (
+        <div style={props}>
+          <Detail />
+        </div>
+      )}
+    </Spring>
+  )
 
   render() {
     const { classes } = this.props;
-    const { currentPage } = this.state;
+    const { showDetail } = this.state;
     return (
-      <Layout handleInternalNav={this.handleInternalNav} onIndex={currentPage === 0} handleWorkClick={this.handleWorkClick}>
-        <SEO title="Will Copeland" keywords={['Frontend', 'Developer', 'React', 'React.js']} />
-        <Jumbotron />
+      <Layout>
+        <div className={classes.root} onClick={() => this.handleClick()}>
+          <SEO title="Will Copeland" keywords={['Frontend', 'Developer', 'React', 'React.js']} />
+          <Jumbotron showDetail={showDetail} />
+          {showDetail ? this.renderDetail() : null}
+        </div>
+
       </Layout>
     );
   }
