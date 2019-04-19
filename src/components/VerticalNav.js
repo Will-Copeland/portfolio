@@ -12,7 +12,7 @@ const styles = {
     padding: '1rem',
     '&:hover': {
       cursor: 'pointer',
-      borderBottom: '2px solid black',
+      borderBottom: '1px solid black',
     },
   },
 };
@@ -22,11 +22,21 @@ class VerticalNav extends Component {
     prop: PropTypes,
   }
 
+
   render() {
-    const { classes, handlePageSelect } = this.props;
+    const { classes, handlePageSelect, currentPage } = this.props;
+    console.log(currentPage);
+    
+    const menuOptions = ['Work', 'Contact', 'About'];
     return (
+
       <div className={classes.root}>
-        <Typography variant="h3" className={classes.navOption} onClick={() => handlePageSelect(0)}>
+        {menuOptions.map((option, index) => (
+          <Typography style={index === currentPage ? { borderBottom: '4px solid black' } : null} variant="h3" className={classes.navOption} onClick={() => handlePageSelect(index)}>
+            {option}
+          </Typography>
+        ))}
+        {/* <Typography variant="h3" className={classes.navOption} onClick={() => handlePageSelect(0)}>
             Work
         </Typography>
         <Typography variant="h3" className={classes.navOption} onClick={() => handlePageSelect(1)}>
@@ -34,7 +44,7 @@ class VerticalNav extends Component {
         </Typography>
         <Typography variant="h3" className={classes.navOption} onClick={() => handlePageSelect(2)}>
             About
-        </Typography>
+        </Typography> */}
       </div>
     );
   }

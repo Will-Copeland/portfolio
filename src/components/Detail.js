@@ -34,7 +34,8 @@ class Detail extends Component {
     const { currentPage } = this.state;
     return (
       <div className={classes.root}>
-        <VerticalNav handlePageSelect={this.handlePageSelect} />
+        <VerticalNav currentPage={currentPage} handlePageSelect={this.handlePageSelect} />
+        {/* <SelectedPage currentPage={currentPage} /> */}
       </div>
 
     );
