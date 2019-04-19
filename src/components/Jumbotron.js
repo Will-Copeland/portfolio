@@ -9,18 +9,20 @@ const styles = theme => ({
     left: '50%',
     transform: 'translate(-50%, -50%)',
     textAlign: 'center',
+    '&:hover': {
+      cursor: 'default',
+    },
   },
   subtitle: {
     marginTop: '1rem',
   },
 });
 
-const Jumbotron = ({ classes }) => (
-
+const Jumbotron = ({ classes, showDetail }) => (
   <Spring
-    from={{ opacity: 0 }}
-    to={{ opacity: 1 }}
-    config={config.molasses}
+    from={{ opacity: showDetail ? 1 : 0 }}
+    to={{ opacity: showDetail ? 0 : 1 }}
+    config={config.slow}
   >
     {props => (
       <div className={classes.root} style={props}>
@@ -28,9 +30,10 @@ const Jumbotron = ({ classes }) => (
             Hi, I'm Will
         </Typography>
         <Spring
-          from={{ opacity: -1 }}
-          to={{ opacity: 1 }}
-          config={config.molasses}
+
+          from={{ opacity: showDetail ? 1 : 0 }}
+          to={{ opacity: showDetail ? 0 : 1 }}
+          config={config.slow}
         >
           {props2 => (
 
