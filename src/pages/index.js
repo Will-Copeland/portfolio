@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core';
 import { Spring, config } from 'react-spring';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Jumbotron from '../components/Jumbotron';
+import Intro from '../components/Intro';
 import Detail from '../components/Detail';
 
 
@@ -47,7 +47,7 @@ class Index extends React.Component {
       <Layout>
         <div className={classes.root} onClick={() => this.handleClick()}>
           <SEO title="Will Copeland" keywords={['Frontend', 'Developer', 'React', 'React.js']} />
-          <Jumbotron showDetail={showDetail} />
+          <Intro showDetail={showDetail} />
           {showDetail ? this.renderDetail() : null}
         </div>
 

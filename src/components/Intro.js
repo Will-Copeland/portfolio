@@ -18,7 +18,7 @@ const styles = theme => ({
   },
 });
 
-const Jumbotron = ({ classes, showDetail }) => (
+const Intro = ({ classes, showDetail }) => (
   <Spring
     from={{ opacity: showDetail ? 1 : 0 }}
     to={{ opacity: showDetail ? 0 : 1 }}
@@ -48,4 +48,4 @@ const Jumbotron = ({ classes, showDetail }) => (
 );
 
 
-export default withStyles(styles)(Jumbotron);
+export default withStyles(styles)(Intro);
