@@ -1,11 +1,11 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { withStyles } from '@material-ui/core';
 import { Spring, config } from 'react-spring';
 import Layout from '../components/layout';
-import SEO from '../components/seo';
 import Intro from '../components/Intro';
 import Detail from '../components/Detail';
-
 
 const styles = {
   root: {
@@ -43,14 +43,13 @@ class Index extends React.Component {
   render() {
     const { classes } = this.props;
     const { showDetail } = this.state;
+    setTimeout(this.handleClick, 2000);
     return (
       <Layout>
         <div className={classes.root} onClick={() => this.handleClick()}>
-          <SEO title="Will Copeland" keywords={['Frontend', 'Developer', 'React', 'React.js']} />
           <Intro showDetail={showDetail} />
           {showDetail ? this.renderDetail() : null}
         </div>
-
       </Layout>
     );
   }
