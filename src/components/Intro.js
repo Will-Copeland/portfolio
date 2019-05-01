@@ -1,8 +1,9 @@
 import React from 'react';
 import { Spring, config } from 'react-spring';
+import PropTypes from 'prop-types';
 import { withStyles, Typography } from '@material-ui/core';
 
-const styles = theme => ({
+const styles = {
   root: {
     position: 'absolute',
     top: '50%',
@@ -16,7 +17,7 @@ const styles = theme => ({
   subtitle: {
     marginTop: '1rem',
   },
-});
+};
 
 const Intro = ({ classes, showDetail }) => (
   <Spring
@@ -47,5 +48,8 @@ const Intro = ({ classes, showDetail }) => (
   </Spring>
 );
 
+Intro.propTypes = {
+  showDetail: PropTypes.bool.isRequired,
+};
 
 export default withStyles(styles)(Intro);
