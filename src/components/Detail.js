@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core';
-import { Spring } from 'react-spring';
-import VerticalNav from './VerticalNav';
+import Navigation from './Navigation';
+import PageContainer from './PageContainer';
 
-const styles = {
+const styles = ({ breakpoints }) => ({
   root: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    border: '1px solid black',
+    height: '100vh',
+    margin: 'auto',
+    width: '75%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-};
+  pageContainer: {
+    width: '50%'
+  }
+});
 
 class Detail extends Component {
-  static propTypes = {
-    prop: PropTypes,
-  }
-
   constructor() {
     super();
     this.state = {
@@ -34,8 +35,14 @@ class Detail extends Component {
     const { currentPage } = this.state;
     return (
       <div className={classes.root}>
-        <VerticalNav currentPage={currentPage} handlePageSelect={this.handlePageSelect} />
-        {/* <SelectedPage currentPage={currentPage} /> */}
+        <Navigation
+          className={classes.nav}
+          currentPage={currentPage}
+          handlePageSelect={this.handlePageSelect}
+        />
+        <div className={classes.pageContainer}>
+          <PageContainer currentPage={currentPage} />
+        </div>
       </div>
 
     );
