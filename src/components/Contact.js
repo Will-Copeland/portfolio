@@ -9,9 +9,11 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
+    // alignItems: 'flex-start'
   },
   nameEmail: {
     display: 'flex',
+    justifyContent: 'center'
   },
   subject: {
     margin: 'auto',

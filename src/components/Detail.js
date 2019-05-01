@@ -5,17 +5,21 @@ import PageContainer from './PageContainer';
 
 const styles = ({ breakpoints }) => ({
   root: {
-    border: '1px solid black',
-    height: '100vh',
-    margin: 'auto',
-    width: '75%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    [breakpoints.up('md')]: {
+      // border: '1px solid black',
+      height: '100vh',
+      margin: 'auto',
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+    },
   },
   pageContainer: {
-    width: '50%'
-  }
+    [breakpoints.up('md')]: {
+      width: '50%',
+    },
+  },
 });
 
 class Detail extends Component {
