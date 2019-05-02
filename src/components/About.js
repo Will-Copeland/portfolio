@@ -1,21 +1,32 @@
 import React, { PureComponent } from 'react';
 import {
- withStyles, Typography, Avatar, Divider 
+  withStyles, Typography, Avatar, Divider,
 } from '@material-ui/core';
 import Will from '../images/will1.jpg';
 
 const styles = ({ breakpoints }) => ({
   root: {
-    display: 'flex',
+    textAlign: 'center',
+    [breakpoints.up('md')]: {
+      display: 'flex',
+      textAlign: 'left'
+    },
   },
   avatar: {
-    width: '220px',
-    height: '220px',
-    top: '5rem',
-    marginRight: '1.3rem',
+    margin: 'auto',
+    width: '120px',
+    height: '120px',
+    marginTop: '1.5rem',
+    [breakpoints.up('md')]: {
+      width: '220px',
+      height: '220px',
+      marginRight: '1.3rem',
+    },
   },
   subtitle: {
     margin: '1rem',
+    lineHeight: '2.25rem',
+    fontSize: '1.25rem',
   },
   textBody: {
     margin: '1.25rem',
