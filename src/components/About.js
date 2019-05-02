@@ -1,9 +1,27 @@
 import React, { PureComponent } from 'react';
-import { withStyles, Typography, Avatar } from '@material-ui/core';
-
+import {
+ withStyles, Typography, Avatar, Divider 
+} from '@material-ui/core';
+import Will from '../images/will1.jpg';
 
 const styles = ({ breakpoints }) => ({
-  root: {},
+  root: {
+    display: 'flex',
+  },
+  avatar: {
+    width: '220px',
+    height: '220px',
+    top: '5rem',
+    marginRight: '1.3rem',
+  },
+  subtitle: {
+    margin: '1rem',
+  },
+  textBody: {
+    margin: '1.25rem',
+    lineHeight: '2.25rem',
+    fontSize: '1.25rem',
+  },
 });
 
 class About extends PureComponent {
@@ -11,13 +29,24 @@ class About extends PureComponent {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <Avatar />
-        <Typography>
-            Sup fools. I smol-punch my keyboard in very sepcifc ways.
-            If y'all want some of my smol-punches you can hit me up through the
-            contact tab.
-            See ya
-        </Typography>
+        <Avatar
+          alt="William Copeland"
+          src={Will}
+          className={classes.avatar}
+        />
+        <div>
+          <Typography>Will Copeland</Typography>
+          <Divider />
+          <Typography className={classes.subtitle}>Hello!</Typography>
+          <Typography className={classes.textBody}>
+           I am a frontend developer based in the SF bay area.
+           I specialize in React, but have experience with a variety of
+           languages and tools. If you have a project you’d like to discuss,
+           please fill out the contact form and I’ll be in touch shortly!
+           When I'm not walking my dog or building apps, you can find me
+           organizing the next BBQ with my friends.
+          </Typography>
+        </div>
       </div>
     );
   }
