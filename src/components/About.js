@@ -9,7 +9,8 @@ const styles = ({ breakpoints }) => ({
     textAlign: 'center',
     [breakpoints.up('md')]: {
       display: 'flex',
-      textAlign: 'left'
+      flexDirection: 'column',
+      textAlign: 'left',
     },
   },
   avatar: {
@@ -20,8 +21,12 @@ const styles = ({ breakpoints }) => ({
     [breakpoints.up('md')]: {
       width: '220px',
       height: '220px',
-      marginRight: '1.3rem',
+      margin: 'auto',
     },
+  },
+  name: {
+    margin: '1rem',
+    textAlign: 'center',
   },
   subtitle: {
     margin: '1rem',
@@ -46,16 +51,14 @@ class About extends PureComponent {
           className={classes.avatar}
         />
         <div>
-          <Typography>Will Copeland</Typography>
+          <Typography className={classes.name}>Will Copeland</Typography>
           <Divider />
           <Typography className={classes.subtitle}>Hello!</Typography>
           <Typography className={classes.textBody}>
            I am a frontend developer based in the SF bay area.
-           I specialize in React, but have experience with a variety of
+           I specialize in JavaScript, but have experience with a variety of
            languages and tools. If you have a project you’d like to discuss,
            please fill out the contact form and I’ll be in touch shortly!
-           When I'm not walking my dog or building apps, you can find me
-           organizing the next BBQ with my friends.
           </Typography>
         </div>
       </div>
