@@ -68,7 +68,6 @@ class Work extends PureComponent {
               </Trail>
             )
             }
-
           />
         </GridList>
       </div>
