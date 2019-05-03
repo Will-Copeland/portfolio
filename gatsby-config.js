@@ -10,13 +10,13 @@ module.exports = {
         'Material-UI',
         'CSS3 // Grid // Flexbox',
         'Webpack // Babel',
+        'GraphQL // Prisma // Apollo // Hasura',
       ],
       workingKnowledge: [
-        'GraphQL // Prisma // Apollo',
         'Node.js // Next.js',
         'Leaflet',
         'Docker',
-        'Flow'
+        'Flow',
       ],
     },
   },

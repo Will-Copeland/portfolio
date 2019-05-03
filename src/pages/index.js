@@ -1,79 +1,58 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import { Link } from 'gatsby';
-import { Parallax, ParallaxLayer } from 'react-spring/addons';
 import { withStyles } from '@material-ui/core';
-import Layout from '../components/layout';
-import Jumbotron from '../components/Jumbotron';
-
-import SEO from '../components/seo';
-import Skills from '../components/Skills';
-import Work from '../components/Work';
+import { Spring, config } from 'react-spring';
+import Layout from '../utils/layout';
+import Intro from '../components/Intro';
+import Detail from '../components/Detail';
 
 const styles = {
-  parallaxPage: {
-    width: '100%',
-    height: '100%',
+  root: {
+    width: '100vw',
+    height: '100vh',
   },
 };
 
-class IndexPage extends React.Component {
+class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 0,
+      showDetail: false,
     };
   }
 
-  componentDidMount() {
-    const { currentPage } = this.state;
-    const { location } = this.props;
-    try {
-      if (location.state.scrollTo !== null) {
-        if (location.state.scrollTo && location.state.scrollTo !== currentPage) {
-          this.handleScroll(location.state.scrollTo);
-        }
-      }
-    } catch (e) {
-      // Stop error on page load with no link scrolling
-    }
+  handleClick = () => {
+    this.setState({ showDetail: true });
   }
 
-  handleInternalNav = (page) => {
-    const { currentPage } = this.state;
-
-    if (currentPage !== page) {
-      this.handleScroll(page);
-    }
-  }
-
-  handleScroll = (page) => {
-
-    this.setState({ currentPage: page });
-    setTimeout(() => this.parallax.scrollTo(page), 500);
-  }
+  renderDetail = () => (
+    <Spring
+      from={{ opacity: -1 }}
+      to={{ opacity: 1 }}
+      config={config.molasses}
+    >
+      {props => (
+        <div style={props}>
+          <Detail />
+        </div>
+      )}
+    </Spring>
+  )
 
   render() {
     const { classes } = this.props;
-    const { currentPage } = this.state;
+    const { showDetail } = this.state;
+    setTimeout(this.handleClick, 2000);
     return (
-      // identifies if user is on Index && current(parallax)Page is 0
-      // handleInternalNav will trigger if user is already on Index, as <Link /> wont fire
-      <Layout handleInternalNav={this.handleInternalNav} onIndex={currentPage === 0} handleWorkClick={this.handleWorkClick}>
-        <SEO title="Will Copeland" keywords={['Frontend', 'Developer', 'React', 'React.js']} />
-        <Parallax scrolling={false} ref={ref => (this.parallax = ref)} pages={3}>
-          <ParallaxLayer className={classes.parallaxPage} onClick={() => this.handleScroll(1)} offset={0}>
-            <Jumbotron open={currentPage === 0} />
-          </ParallaxLayer>
-          <ParallaxLayer className={classes.parallaxPage} onClick={() => this.handleScroll(2)} offset={1} speed={0.2}>
-            <Skills open={currentPage === 1} />
-          </ParallaxLayer>
-          <ParallaxLayer className={classes.parallaxPage} onClick={() => this.handleScroll(0)} offset={2}>
-            <Work open={currentPage === 2} />
-          </ParallaxLayer>
-        </Parallax>
+      <Layout>
+        <div className={classes.root} onClick={() => this.handleClick()}>
+          {!showDetail ? <Intro showDetail={showDetail} /> : null}
+          {showDetail ? this.renderDetail() : null}
+        </div>
       </Layout>
     );
   }
 }
 
-export default withStyles(styles)(IndexPage);
+export default withStyles(styles)(Index);

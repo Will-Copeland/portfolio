@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  withStyles, TextField, Button,
+  withStyles, TextField, Button, Typography, Divider,
 } from '@material-ui/core';
 
 const styles = {
@@ -12,6 +12,7 @@ const styles = {
   },
   nameEmail: {
     display: 'flex',
+    justifyContent: 'center',
   },
   subject: {
     margin: 'auto',
@@ -33,18 +34,26 @@ class Contact extends React.PureComponent {
   render() {
     const { classes } = this.props;
     return (
-      <form className={classes.root} action="https://formspree.io/willcopeland34@gmail.com" method="POST">
-        <div className={classes.nameEmail}>
-          <TextField className={classes.field} name="name" label="Name" />
-          <TextField className={classes.field} name="_replyto" label="Email" />
-        </div>
-        <div className={classes.subject}>
-          <TextField className={classes.field} name="_subject" label="Subject" />
-        </div>
-        <TextField name="_gotcha" className={classes.hidden} />
-        <TextField className={classes.field} name="text" label="Message" multiline variant="outlined" rows={3} />
-        <Button className={classes.button} variant="contained" type="submit">Submit</Button>
-      </form>
+      <React.Fragment>
+        <Typography>Will Copeland</Typography>
+        <Divider />
+
+        <form className={classes.root} action="https://formspree.io/willcopeland34@gmail.com" method="POST">
+          <div className={classes.nameEmail}>
+            <TextField className={classes.field} name="name" label="Name" />
+            <TextField className={classes.field} name="_replyto" label="Email" />
+          </div>
+
+          <div className={classes.subject}>
+            <TextField className={classes.field} name="_subject" label="Subject" />
+          </div>
+
+          <TextField name="_gotcha" className={classes.hidden} />
+          <TextField className={classes.field} name="text" label="Message" multiline variant="outlined" rows={3} />
+          <Button className={classes.button} variant="contained" type="submit">Submit</Button>
+        </form>
+
+      </React.Fragment>
     );
   }
 }

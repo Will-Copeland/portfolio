@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import classnames from 'classnames';
 import { withStyles, Typography, Chip } from '@material-ui/core';
-import Layout from '../components/layout';
+import Layout from '../utils/layout';
 
 const styles = theme => ({
   root: {
