@@ -6,6 +6,7 @@ import PageContainer from './PageContainer';
 const styles = ({ breakpoints }) => ({
   root: {
     [breakpoints.up('md')]: {
+      overflowY: 'hidden',
       // border: '1px solid black',
       height: '100vh',
       margin: 'auto',
@@ -16,7 +17,7 @@ const styles = ({ breakpoints }) => ({
     },
   },
   pageContainer: {
-    [breakpoints.up('md')]: {
+    [breakpoints.up('lg')]: {
       width: '50%',
     },
   },
