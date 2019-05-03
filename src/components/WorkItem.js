@@ -24,6 +24,9 @@ const styles = ({ breakpoints }) => ({
       height: '360px',
     },
   },
+  link: {
+    textDecoration: 'none'
+  }
 });
 
 class WorkItem extends PureComponent {
@@ -44,7 +47,7 @@ class WorkItem extends PureComponent {
 
     return (
       <div>
-        <a target="_blank" rel="noopener noreferrer" href={externalLink}>
+        <a className={classes.link} target="_blank" rel="noopener noreferrer" href={externalLink}>
           <Typography className={classes.title}>{title}</Typography>
           <Divider inset />
           <GridListTile style={{ trail }} className={classes.root}>
