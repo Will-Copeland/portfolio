@@ -9,5 +9,5 @@ imgPath:
     - '../images/project-images/grand-central/grand-central3.jpg'
     - '../images/project-images/grand-central/grand-central4.jpg'
 toolsUsed: ["PouchDB", "Reactjs", "Material-UI", "Leaflet"]
-excerpt: 'PWA for RR crossing reporting'
+excerpt: 'Safety Reporting'
 ---
