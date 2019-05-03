@@ -41,16 +41,15 @@ class WorkItem extends PureComponent {
       },
       classes,
     } = this.props;
-    console.log(externalLink);
-    
+
     return (
       <div>
         <a target="_blank" rel="noopener noreferrer" href={externalLink}>
           <Typography className={classes.title}>{title}</Typography>
           <Divider inset />
-
           <GridListTile style={{ trail }} className={classes.root}>
             <img
+              alt={title}
               className={classes.image}
               src={imgPath[0].publicURL}
             />
@@ -60,7 +59,6 @@ class WorkItem extends PureComponent {
             />
           </GridListTile>
         </a>
-
       </div>
 
     );

@@ -31,17 +31,17 @@ const Intro = ({ classes, showDetail }) => (
             Hi, I'm Will
         </Typography>
         <Spring
-
           from={{ opacity: showDetail ? 1 : 0 }}
           to={{ opacity: showDetail ? 0 : 1 }}
           config={config.slow}
         >
-          {props2 => (
 
+          {props2 => (
             <Typography style={props2} className={classes.subtitle} variant="body1">
             I make ideas come to life with code.
             </Typography>
           )}
+
         </Spring>
       </div>
     )}

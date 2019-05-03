@@ -7,7 +7,6 @@ const styles = ({ breakpoints }) => ({
   root: {
     [breakpoints.up('md')]: {
       overflowY: 'hidden',
-      // border: '1px solid black',
       height: '100vh',
       margin: 'auto',
       width: '100%',
@@ -45,6 +44,7 @@ class Detail extends Component {
           currentPage={currentPage}
           handlePageSelect={this.handlePageSelect}
         />
+
         <div className={classes.pageContainer}>
           <PageContainer currentPage={currentPage} />
         </div>

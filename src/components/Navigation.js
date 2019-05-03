@@ -10,7 +10,7 @@ const styles = ({ breakpoints }) => ({
       width: 'fit-content',
       transform: 'rotate(-90deg)',
       float: 'left',
-      display: 'inline'
+      display: 'inline',
     },
   },
   navOption: {

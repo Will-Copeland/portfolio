@@ -5,14 +5,17 @@ import About from './About';
 import Work from './Work';
 
 class PageContainer extends Component {
-  static propTypes = {};
 
   render() {
-    const { classes, currentPage } = this.props;
-
+    const { currentPage } = this.props;
     const pages = [<Work />, <Contact />, <About />];
+
     return pages[currentPage];
   }
 }
+
+PageContainer.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+};
 
 export default PageContainer;

@@ -16,14 +16,12 @@ const styles = ({ breakpoints }) => ({
       maxHeight: '100%',
       width: '130%',
     },
-
   },
   gridList: {
     maxWidth: '100%',
     justifyContent: 'center',
     [breakpoints.up('md')]: {
       justifyContent: 'left',
-
     },
   },
 });
