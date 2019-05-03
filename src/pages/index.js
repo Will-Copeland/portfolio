@@ -3,7 +3,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core';
 import { Spring, config } from 'react-spring';
-import Layout from '../components/layout';
+import Layout from '../utils/layout';
 import Intro from '../components/Intro';
 import Detail from '../components/Detail';
 
