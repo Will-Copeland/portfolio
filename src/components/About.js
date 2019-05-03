@@ -28,6 +28,9 @@ const styles = ({ breakpoints }) => ({
     margin: '1rem',
     textAlign: 'center',
   },
+  link: {
+    color: 'black',
+  },
   subtitle: {
     margin: '1rem',
     lineHeight: '2.25rem',
@@ -51,7 +54,13 @@ class About extends PureComponent {
           className={classes.avatar}
         />
         <div>
-          <Typography className={classes.name}>Will Copeland</Typography>
+          <div className={classes.name}>
+            <a className={classes.link} href="https://github.com/Will-Copeland" rel="noopener noreferrer" target="_blank">
+            GitHub
+            </a>
+            <Typography>Will Copeland</Typography>
+          </div>
+
           <Divider />
           <Typography className={classes.subtitle}>Hello!</Typography>
           <Typography className={classes.textBody}>

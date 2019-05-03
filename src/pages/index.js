@@ -47,7 +47,7 @@ class Index extends React.Component {
     return (
       <Layout>
         <div className={classes.root} onClick={() => this.handleClick()}>
-          <Intro showDetail={showDetail} />
+          {!showDetail ? <Intro showDetail={showDetail} /> : null}
           {showDetail ? this.renderDetail() : null}
         </div>
       </Layout>
